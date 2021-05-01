@@ -15,9 +15,9 @@ class MyApp extends StatelessWidget {
 
 
 
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.green,
       ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+      home: MyHomePage(title: 'ConRem'),
     );
   }
 }
@@ -34,14 +34,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-     
-      _counter++;
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -56,8 +48,7 @@ class _MyHomePageState extends State<MyHomePage> {
         
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
+      
         child: Icon(Icons.add),
       ), 
     );
