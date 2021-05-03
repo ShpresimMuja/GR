@@ -1,56 +1,32 @@
 import 'package:flutter/material.dart';
+import "C_AppBar.dart";
 
 void main() {
-  runApp(MyApp());
+  runApp(App());
 }
 
-class MyApp extends StatelessWidget {
+class App extends StatelessWidget {
   
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-       
+     title: "ConReminder",
+      home: Home()
 
-
-
-        primarySwatch: Colors.green,
-      ),
-      home: MyHomePage(title: 'ConRem'),
+      
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
-
-
-
-  final String title;
-
-  @override
-  _MyHomePageState createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-
+class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
-      appBar: AppBar(
-     
-        title: Text(widget.title),
-      ),
-      body: Center(
-        
-        
-      ),
-      floatingActionButton: FloatingActionButton(
+
+      body: C_AppBar(),
+
       
-        child: Icon(Icons.add),
-      ), 
+
     );
   }
 }
