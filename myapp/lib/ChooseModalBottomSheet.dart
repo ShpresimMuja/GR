@@ -6,7 +6,7 @@ class ChooseModalBottomSheet extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return  TextButton(
-                        child: const Text('showModalBottomSheet'),
+                        child: const Text('Select Coin.'),
                         onPressed: () {
                           showModalBottomSheet<void>(
                             context: context,
@@ -20,7 +20,7 @@ class ChooseModalBottomSheet extends StatelessWidget {
                                     mainAxisSize: MainAxisSize.min,
                                     children: <Widget>[
                                     
-                                    Row(  mainAxisAlignment: MainAxisAlignment.spaceBetween,  children: [ TextButton(child: Text("Press", style: TextStyle( fontSize: 20,  color: Colors.blue, fontWeight: FontWeight.bold),),),
+                                    Row(  mainAxisAlignment: MainAxisAlignment.spaceBetween,  children: [ Text("Coin List. ", style: TextStyle( fontSize: 20,  color: Colors.blue, fontWeight: FontWeight.bold),),
                                     IconButton(icon: const Icon(Icons.close), onPressed: ()=> Navigator.pop(context))] )
                                       
                                     ],
@@ -32,5 +32,5 @@ class ChooseModalBottomSheet extends StatelessWidget {
                         },
                       );
     
-}
+  }
 }
