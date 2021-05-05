@@ -6,15 +6,9 @@ void main() {
 }
 
 class App extends StatelessWidget {
-  
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-     title: "ConReminder",
-      home: Home()
-
-      
-    );
+    return MaterialApp(title: "ConReminder", home: Home());
   }
 }
 
@@ -22,13 +16,7 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
       body: C_AppBar(),
-
-
-      
-      
-
     );
   }
 }
