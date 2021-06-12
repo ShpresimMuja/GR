@@ -23,6 +23,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  typicons_flutter: ^0.2.1
+  http: ^0.13.3
 
 
   # The following adds the Cupertino Icons font to your application.

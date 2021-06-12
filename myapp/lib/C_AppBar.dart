@@ -7,14 +7,16 @@ class C_AppBar extends StatefulWidget {
 }
 
 class _C_AppBarState extends State<C_AppBar> {
-  var cards = List.of(<Widget>[Text("Hello World!")]);
+  var cards = List.of(<Widget>[C_Card()]);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Center(child: Text("ConReminder")),
-        backgroundColor: Colors.lightBlue,
+         backgroundColor: Colors.white,
+        iconTheme: IconThemeData(color: Colors.black87),
+        elevation: 0,
       ),
       drawer: Drawer(
         child: ListView(
@@ -27,7 +29,7 @@ class _C_AppBarState extends State<C_AppBar> {
                       color: Colors.white,
                       fontWeight: FontWeight.bold)),
               decoration: BoxDecoration(
-                color: Colors.lightBlue,
+                color: Colors.white,
               ),
             ),
             ListTile(
@@ -42,14 +44,24 @@ class _C_AppBarState extends State<C_AppBar> {
         ),
       ),
       body: ListView.builder(
-        itemBuilder: (context, index) => cards[0],
-      ),
+          itemCount: cards.length,
+          itemBuilder: (context, index) => cards[index]
+            ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          //cards.add(Text("Hello World"));
+          setState(() {
+
+              cards.add(C_Card()
+
+    
+              
+              );
+            
+          });
+        
         },
         tooltip: 'Update Text',
-        child: Icon(Icons.update),
+        child: Icon(Icons.add),
       ),
     );
   }
