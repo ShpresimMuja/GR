@@ -32,8 +32,8 @@ class _ItemsCardState extends State<ItemsCard> {
                   return ListView(children: [
 
 
-                    Text(CD.currentprice.toString()),
-                    Text(CD.name.toString()),
+                   // Text(CD.currentprice.toString()),
+                   // Text(CD.name.toString()),
 
 
 
