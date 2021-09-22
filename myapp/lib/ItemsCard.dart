@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:convert';
 
 import 'dart:ui';
@@ -6,20 +7,47 @@ import 'package:flutter/material.dart';
 
 import 'package:http/http.dart' as http;
 
+void Print(String name) {
+  //print(name);
+}
+
 class ItemsCard extends StatefulWidget {
+  BuildContext cont;
+  String selectedCoin;
+
+  ItemsCard({
+    Key key,
+    @required this.cont,
+  });
+
+  String getSelectedItem() {
+    return this.selectedCoin;
+  }
+
   @override
   _ItemsCardState createState() => _ItemsCardState();
 }
 
 class _ItemsCardState extends State<ItemsCard> {
-  List<CryptoData> list;
+  String selectedCoin;
+  BuildContext cont;
+
+  @override
+  void initState() {
+    super.initState();
+    cont = widget.cont;
+    selectedCoin = widget.selectedCoin;
+
+    // DataCallBack = Print;
+  }
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return StatefulBuilder(builder: (BuildContext c, StateSetter setter) {
+      return Container(
         padding: EdgeInsets.fromLTRB(10, 5, 5, 0),
         width: double.maxFinite,
-        height: 800,
+        height: double.maxFinite - 2,
         child: FutureBuilder<List<CryptoData>>(
           future: getCryptoPrices(),
           builder: (context, snapshot) {
@@ -27,49 +55,59 @@ class _ItemsCardState extends State<ItemsCard> {
               return ListView.builder(
                   itemCount: snapshot.data.length,
                   itemBuilder: (context, index) {
-                    return Card(
-                        elevation: 1,
-                        child: Padding(
-                          padding: EdgeInsets.all(7),
-                          child: Stack(children: <Widget>[
-                            Align(
-                              alignment: Alignment.centerRight,
-                              child: Stack(
-                                children: <Widget>[
-                                  Padding(
-                                      padding: const EdgeInsets.only(
-                                          left: 10, top: 5),
-                                      child: Column(
-                                        children: <Widget>[
-                                          Row(
-                                            children: <Widget>[
-                                              CryptoIcon(),
-                                              SizedBox(width: 20),
-                                              CryptoNameAbr(
-                                                  snapshot.data[index].name,
-                                                  snapshot.data[index].symbol,
-                                                  Alignment.centerLeft),
-                                              Spacer(),
-                                              CryptoNameAbr(
-                                                  snapshot.data[index].price
-                                                      .toStringAsFixed(2),
-                                                  snapshot.data[index].dayChange
-                                                      .toStringAsFixed(2),
-                                                  Alignment.centerRight),
-                                            ],
-                                          )
-                                        ],
-                                      ))
-                                ],
-                              ),
-                            )
-                          ]),
-                        ));
+                    return GestureDetector(
+                      child: Card(
+                          elevation: 1,
+                          child: Padding(
+                            padding: EdgeInsets.all(7),
+                            child: Stack(children: <Widget>[
+                              Align(
+                                alignment: Alignment.centerRight,
+                                child: Stack(
+                                  children: <Widget>[
+                                    Padding(
+                                        padding: const EdgeInsets.only(
+                                            left: 10, top: 5),
+                                        child: Column(
+                                          children: <Widget>[
+                                            Row(
+                                              children: <Widget>[
+                                                CryptoIcon(),
+                                                SizedBox(width: 20),
+                                                CryptoNameAbr(
+                                                    snapshot.data[index].name,
+                                                    snapshot.data[index].symbol,
+                                                    Alignment.centerLeft),
+                                                Spacer(),
+                                                CryptoNameAbr(
+                                                    snapshot.data[index].price
+                                                        .toStringAsFixed(2),
+                                                    snapshot
+                                                        .data[index].dayChange
+                                                        .toStringAsFixed(2),
+                                                    Alignment.centerRight),
+                                              ],
+                                            )
+                                          ],
+                                        ))
+                                  ],
+                                ),
+                              )
+                            ]),
+                          )),
+                      onTap: () {
+                        setState(() {
+                          Navigator.pop(cont, snapshot.data[index].name);
+                        });
+                      },
+                    );
                   });
             } else
               return CircularProgressIndicator();
           },
-        ));
+        ),
+      );
+    });
   }
 }
 

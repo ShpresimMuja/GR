@@ -1,11 +1,11 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import "ItemsCard.dart";
 
 class ChooseModalBottomSheet extends StatefulWidget {
   String name;
   Widget child;
 
-  ChooseModalBottomSheet({Key key, @required this.name, this.child})
+  ChooseModalBottomSheet({Key key, @required this.name, @required this.child})
       : super(key: key);
 
   @override
@@ -15,81 +15,47 @@ class ChooseModalBottomSheet extends StatefulWidget {
 class _ChooseModalBottomSheetState extends State<ChooseModalBottomSheet> {
   String name;
   Widget child;
-  int x = 0;
 
-  var list = List.of(<Widget>[]);
-
-  @override
   void initState() {
     super.initState();
-    name = widget.name;
-    child = widget.child;
-
-    list.add(Padding(
-                padding: EdgeInsets.all(20),
-                child: 
-                    Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            "$name",
-                            style: TextStyle(
-                                fontSize: 20,
-                                color: Colors.blue,
-                                fontWeight: FontWeight.bold),
-                          ),
-                          IconButton(
-                              icon: const Icon(Icons.close),
-                              onPressed: () => Navigator.pop(context))
-                        ]),
-                )
-);
-
-
-list.add(ItemsCard());
-
-
+    this.name = widget.name;
+    this.child = widget.child;
   }
-  
 
   @override
   Widget build(BuildContext context) {
     return TextButton(
-      child: Text('$name'),
+      child: Text(name),
       onPressed: () {
-        showModalBottomSheet<void>(
-          context: context,
-          isScrollControlled: true,
-          builder: (BuildContext context)
-          {
-
-          return Container(
-
-            height: 700,
-            child: ListView.builder(
-
-
-                  itemCount: list.length,
-                  itemBuilder: (context, index) => list[index]
-    
-
-            
-
-            
-              
-
-
-
-
-
-            )
-            
-            
-            );
-        
-          },
-        );
+        showModalBottomSheet(
+            context: context,
+            isScrollControlled: true,
+            builder: (context) => ListView(
+                  scrollDirection: Axis.vertical,
+                  children: [ShowBotSheetLayout(name, context), child],
+                )).then((value) {
+          setState(() {
+            if (value != 'close') {
+              name = value;
+            }
+          });
+        });
       },
     );
   }
+}
+
+Widget ShowBotSheetLayout(String name, BuildContext context) {
+  return Padding(
+      padding: EdgeInsets.all(20),
+      child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
+        Text(
+          "$name",
+          style: TextStyle(
+              fontSize: 20, color: Colors.blue, fontWeight: FontWeight.bold),
+        ),
+        IconButton(
+            icon: const Icon(Icons.close),
+            onPressed: () => {Navigator.pop(context, 'close')})
+      ]));
 }
