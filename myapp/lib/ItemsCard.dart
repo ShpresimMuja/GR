@@ -12,17 +12,11 @@ void Print(String name) {
 }
 
 class ItemsCard extends StatefulWidget {
-  BuildContext cont;
   String selectedCoin;
 
   ItemsCard({
     Key key,
-    @required this.cont,
   });
-
-  String getSelectedItem() {
-    return this.selectedCoin;
-  }
 
   @override
   _ItemsCardState createState() => _ItemsCardState();
@@ -35,7 +29,6 @@ class _ItemsCardState extends State<ItemsCard> {
   @override
   void initState() {
     super.initState();
-    cont = widget.cont;
     selectedCoin = widget.selectedCoin;
 
     // DataCallBack = Print;
@@ -53,6 +46,7 @@ class _ItemsCardState extends State<ItemsCard> {
           builder: (context, snapshot) {
             if (snapshot.hasData) {
               return ListView.builder(
+                  scrollDirection: Axis.vertical,
                   itemCount: snapshot.data.length,
                   itemBuilder: (context, index) {
                     return GestureDetector(
@@ -97,7 +91,7 @@ class _ItemsCardState extends State<ItemsCard> {
                           )),
                       onTap: () {
                         setState(() {
-                          Navigator.pop(cont, snapshot.data[index].name);
+                          Navigator.of(context).pop(snapshot.data[index]);
                         });
                       },
                     );
