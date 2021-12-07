@@ -1,3 +1,5 @@
+import 'dart:isolate';
+
 import 'package:flutter/material.dart';
 import 'ChooseModalBottomSheet.dart';
 import 'ItemsCard.dart';
@@ -82,8 +84,14 @@ class _C_CardState extends State<C_Card> {
             Center(
               child: TextButton(
                 child: Text('Apply'),
-                onPressed: () {
-                  print(Value);
+                onPressed: () async {
+                  final recievePort = ReceivePort();
+
+                  await Isolate.spawn(ComputeTask, recievePort.sendPort);
+
+                  recievePort.listen((message) {
+                    print(message);
+                  });
                 },
               ),
             ),
@@ -106,4 +114,15 @@ class _C_CardState extends State<C_Card> {
   }
 }
 
-class GetData {}
+void ComputeTask(SendPort sendport) {
+  Stopwatch stopwatch = new Stopwatch()..start();
+
+  int f = 0;
+  for (int i = 0; i < 10000000000; i++) {
+    f + 10;
+  }
+
+  var g = stopwatch.elapsed.toString();
+
+  sendport.send(g);
+}

@@ -49,52 +49,57 @@ class _ItemsCardState extends State<ItemsCard> {
                   scrollDirection: Axis.vertical,
                   itemCount: snapshot.data.length,
                   itemBuilder: (context, index) {
-                    return GestureDetector(
-                      child: Card(
-                          elevation: 1,
-                          child: Padding(
-                            padding: EdgeInsets.all(7),
-                            child: Stack(children: <Widget>[
-                              Align(
-                                alignment: Alignment.centerRight,
-                                child: Stack(
-                                  children: <Widget>[
-                                    Padding(
-                                        padding: const EdgeInsets.only(
-                                            left: 10, top: 5),
-                                        child: Column(
-                                          children: <Widget>[
-                                            Row(
+                    return SingleChildScrollView(
+                        scrollDirection: Axis.vertical,
+                        child: GestureDetector(
+                          child: Card(
+                              elevation: 1,
+                              child: Padding(
+                                padding: EdgeInsets.all(7),
+                                child: Stack(children: <Widget>[
+                                  Align(
+                                    alignment: Alignment.centerRight,
+                                    child: Stack(
+                                      children: <Widget>[
+                                        Padding(
+                                            padding: const EdgeInsets.only(
+                                                left: 10, top: 5),
+                                            child: Column(
                                               children: <Widget>[
-                                                CryptoIcon(),
-                                                SizedBox(width: 20),
-                                                CryptoNameAbr(
-                                                    snapshot.data[index].name,
-                                                    snapshot.data[index].symbol,
-                                                    Alignment.centerLeft),
-                                                Spacer(),
-                                                CryptoNameAbr(
-                                                    snapshot.data[index].price
-                                                        .toStringAsFixed(2),
-                                                    snapshot
-                                                        .data[index].dayChange
-                                                        .toStringAsFixed(2),
-                                                    Alignment.centerRight),
+                                                Row(
+                                                  children: <Widget>[
+                                                    CryptoIcon(),
+                                                    SizedBox(width: 20),
+                                                    CryptoNameAbr(
+                                                        snapshot
+                                                            .data[index].name,
+                                                        snapshot
+                                                            .data[index].symbol,
+                                                        Alignment.centerLeft),
+                                                    Spacer(),
+                                                    CryptoNameAbr(
+                                                        snapshot
+                                                            .data[index].price
+                                                            .toStringAsFixed(2),
+                                                        snapshot.data[index]
+                                                            .dayChange
+                                                            .toStringAsFixed(2),
+                                                        Alignment.centerRight),
+                                                  ],
+                                                )
                                               ],
-                                            )
-                                          ],
-                                        ))
-                                  ],
-                                ),
-                              )
-                            ]),
-                          )),
-                      onTap: () {
-                        setState(() {
-                          Navigator.of(context).pop(snapshot.data[index]);
-                        });
-                      },
-                    );
+                                            ))
+                                      ],
+                                    ),
+                                  )
+                                ]),
+                              )),
+                          onTap: () {
+                            setState(() {
+                              Navigator.of(context).pop(snapshot.data[index]);
+                            });
+                          },
+                        ));
                   });
             } else
               return CircularProgressIndicator();

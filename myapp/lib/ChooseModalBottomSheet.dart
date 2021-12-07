@@ -36,7 +36,6 @@ class _ChooseModalBottomSheetState extends State<ChooseModalBottomSheet> {
             isScrollControlled: true,
             builder: (context) => ListView(
                   key: UniqueKey(),
-                  scrollDirection: Axis.vertical,
                   children: [
                     ShowBotSheetLayout(LocalName, context),
                     widget.child
