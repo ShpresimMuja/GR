@@ -12,10 +12,10 @@ void Print(String name) {
 }
 
 class ItemsCard extends StatefulWidget {
-  String selectedCoin;
+  String selectedCoin = '';
 
   ItemsCard({
-    Key key,
+    Key? key,
   });
 
   @override
@@ -23,8 +23,8 @@ class ItemsCard extends StatefulWidget {
 }
 
 class _ItemsCardState extends State<ItemsCard> {
-  String selectedCoin;
-  BuildContext cont;
+  String selectedCoin = '';
+  late BuildContext cont;
 
   @override
   void initState() {
@@ -47,7 +47,7 @@ class _ItemsCardState extends State<ItemsCard> {
             if (snapshot.hasData) {
               return ListView.builder(
                   scrollDirection: Axis.vertical,
-                  itemCount: snapshot.data.length,
+                  itemCount: snapshot.data!.length,
                   itemBuilder: (context, index) {
                     return SingleChildScrollView(
                         scrollDirection: Axis.vertical,
@@ -72,17 +72,17 @@ class _ItemsCardState extends State<ItemsCard> {
                                                     SizedBox(width: 20),
                                                     CryptoNameAbr(
                                                         snapshot
-                                                            .data[index].name,
-                                                        snapshot
-                                                            .data[index].symbol,
+                                                            .data![index].name,
+                                                        snapshot.data![index]
+                                                            .symbol,
                                                         Alignment.centerLeft),
                                                     Spacer(),
                                                     CryptoNameAbr(
                                                         snapshot
-                                                            .data[index].price
+                                                            .data![index].price!
                                                             .toStringAsFixed(2),
-                                                        snapshot.data[index]
-                                                            .dayChange
+                                                        snapshot.data![index]
+                                                            .dayChange!
                                                             .toStringAsFixed(2),
                                                         Alignment.centerRight),
                                                   ],
@@ -96,7 +96,7 @@ class _ItemsCardState extends State<ItemsCard> {
                               )),
                           onTap: () {
                             setState(() {
-                              Navigator.of(context).pop(snapshot.data[index]);
+                              Navigator.of(context).pop(snapshot.data![index]);
                             });
                           },
                         ));
@@ -118,7 +118,7 @@ Widget CryptoIcon() {
   ));
 }
 
-Widget CryptoNameAbr(String name, String abrv, Alignment al) {
+Widget CryptoNameAbr(String? name, String abrv, Alignment al) {
   return Align(
     alignment: al,
     child: RichText(
@@ -140,18 +140,18 @@ Widget CryptoNameAbr(String name, String abrv, Alignment al) {
 }
 
 class CryptoData {
-  String symbol;
-  String name;
-  int id;
-  double price;
-  double dayChange;
+  late String symbol;
+  late String name;
+  int? id;
+  double? price;
+  double? dayChange;
 
   CryptoData(
-      {@required this.symbol,
-      @required this.name,
-      @required this.dayChange,
-      @required this.price,
-      @required this.id});
+      {required this.symbol,
+      required this.name,
+      required this.dayChange,
+      required this.price,
+      required this.id});
   factory CryptoData.fromJson(Map<String, dynamic> json) {
     return CryptoData(
         name: json['name'] as String,

@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 import 'ItemsCard.dart';
 
 class ChooseModalBottomSheet extends StatefulWidget {
-  String name;
-  Widget child;
+  late String name;
+  late Widget child;
 
-  ChooseModalBottomSheet({Key key, @required this.name, @required this.child})
+  ChooseModalBottomSheet({Key? key, required this.name, required this.child})
       : super(key: key);
 
   @override
@@ -18,7 +18,7 @@ class ChooseModalBottomSheet extends StatefulWidget {
 }
 
 class _ChooseModalBottomSheetState extends State<ChooseModalBottomSheet> {
-  String LocalName;
+  String LocalName = '';
   void initState() {
     super.initState();
 

@@ -6,7 +6,4 @@ class MainActivity: FlutterActivity() {
 
 
 
-
-
-
 }

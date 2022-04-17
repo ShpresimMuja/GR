@@ -1,30 +1,48 @@
+import 'dart:io';
 import 'dart:isolate';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'ChooseModalBottomSheet.dart';
 import 'ItemsCard.dart';
+import 'NotificationData.dart';
 
 class C_Card extends StatefulWidget {
+  late String Id;
+  String name = '';
+  late double Value = 0.0;
+
+  Map<String, dynamic> toJson() {
+    print('this was called ');
+
+    return {
+      'id': 'id',
+      'condition': 'CryptoPrice',
+      'value': this.Value.toString(),
+      'action': 'Standard',
+    };
+  }
+
   @override
   _C_CardState createState() => _C_CardState();
 }
 
 class _C_CardState extends State<C_Card> {
-  String name;
-  UniqueKey tileKey;
+  late String Id;
+  late UniqueKey tileKey;
+  late ChooseModalBottomSheet condition;
+  late ChooseModalBottomSheet action;
+  late NotificationService service;
 
-  void nameCallback() {}
-  ChooseModalBottomSheet condition;
-  ChooseModalBottomSheet action;
-  double Value;
-
-  ItemsCard card;
+  late ItemsCard card;
 
   @override
   void initState() {
     super.initState();
 
-    Value = 0.0;
+    service = NotificationService();
+
+    widget.Value = 11111111;
 
     condition =
         ChooseModalBottomSheet(name: 'Select Coin :', child: ItemsCard());
@@ -45,7 +63,9 @@ class _C_CardState extends State<C_Card> {
         child: ExpansionTile(
           maintainState: true,
           onExpansionChanged: (bool open) {
-            setState(() {});
+            setState(() {
+              widget.name = condition.name;
+            });
           },
           title: Text('Conditional Reminder.'),
           children: [
@@ -70,7 +90,8 @@ class _C_CardState extends State<C_Card> {
                             //autofocus: true,
                             onTap: () {},
                             onSubmitted: (value) {
-                              Value = double.tryParse(value);
+                              widget.Value = double.parse(value);
+                              print(widget.Value);
                             },
                           )),
                     ])),
@@ -85,13 +106,7 @@ class _C_CardState extends State<C_Card> {
               child: TextButton(
                 child: Text('Apply'),
                 onPressed: () async {
-                  final recievePort = ReceivePort();
-
-                  await Isolate.spawn(ComputeTask, recievePort.sendPort);
-
-                  recievePort.listen((message) {
-                    print(message);
-                  });
+                  service.showNotifications('Notification', 'body');
                 },
               ),
             ),
@@ -108,21 +123,11 @@ class _C_CardState extends State<C_Card> {
       onPressed: () {
         setState(() {
           Navigator.pop(context, name);
+          print(condition.name);
+
+          print(name);
         });
       },
     ));
   }
-}
-
-void ComputeTask(SendPort sendport) {
-  Stopwatch stopwatch = new Stopwatch()..start();
-
-  int f = 0;
-  for (int i = 0; i < 10000000000; i++) {
-    f + 10;
-  }
-
-  var g = stopwatch.elapsed.toString();
-
-  sendport.send(g);
 }
