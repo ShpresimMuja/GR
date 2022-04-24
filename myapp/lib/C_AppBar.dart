@@ -84,9 +84,7 @@ class _C_AppBarState extends State<C_AppBar> {
           showDialog(
               context: context,
               builder: (context) {
-                return AlertDialog(
-                  title: Text('Create Conditional Reminder.'),
-                );
+                return AlertDialog();
               });
 
           setState(() {
