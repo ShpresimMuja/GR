@@ -11,8 +11,7 @@ class C_AppBar extends StatefulWidget {
 }
 
 class _C_AppBarState extends State<C_AppBar> {
-  late var cards = List.of(<Widget>[]);
-  late List<C_Card> Scards = List.of([]);
+  late var cards = List.of([]);
   late List<String> items = [];
 
   @override
@@ -61,15 +60,14 @@ class _C_AppBarState extends State<C_AppBar> {
             final item = items[index];
 
             return Dismissible(
-              key: Key(item),
+              key: UniqueKey(),
 
               onDismissed: (direction) {
                 setState(() {
                   items.removeAt(index);
                   cards.removeAt(index);
-                  Scards.removeAt(index);
-                  print(json.encode(Scards));
-                  writetoFile(json.encode(Scards));
+                  print(json.encode(cards));
+                  writetoFile(json.encode(cards));
                 });
 
                 // Then show a snackbar.
@@ -83,18 +81,27 @@ class _C_AppBarState extends State<C_AppBar> {
           }),
       floatingActionButton: FloatingActionButton(
         onPressed: () async {
+          showDialog(
+              context: context,
+              builder: (context) {
+                return AlertDialog(
+                  title: Text('Create Conditional Reminder.'),
+                );
+              });
+
           setState(() {
-            cards.add(C_Card());
-            Scards.add(C_Card());
+            cards.add(C_Card(
+              Value: 0.0,
+            ));
             var index = items.length;
-            for (var item in Scards) {
-              print(item.Value);
+            for (var item in cards) {
+              print(item.getValue());
             }
 
             items.add('Item ${index + 1}');
           });
 
-          String stream = json.encode(Scards);
+          String stream = json.encode(cards);
 
           writetoFile(stream);
         },
@@ -142,12 +149,16 @@ class _C_AppBarState extends State<C_AppBar> {
     var list = json.decode(await readStream()) as List;
 
     var index = list.length;
+    print(list[0]['value']);
+
     //this is the function i have to modify so it reads onjects from file on start up.
 
     setState(() {
       for (int i = 0; i < list.length; i++) {
-        cards.add(C_Card());
-        Scards.add(C_Card());
+        double value = double.parse(list[i]['value']);
+        cards.add(C_Card(
+          Value: value,
+        ));
 
         items.add('Item ${index + 1}');
       }

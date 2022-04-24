@@ -30,8 +30,6 @@ class _ItemsCardState extends State<ItemsCard> {
   void initState() {
     super.initState();
     selectedCoin = widget.selectedCoin;
-
-    // DataCallBack = Print;
   }
 
   @override

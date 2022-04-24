@@ -36,7 +36,7 @@ class _AppState extends State<App> {
     service = NotificationService();
 
     FirebaseMessaging.instance.getInitialMessage();
-    writeMessage('From flutter');
+    writeMessage('Another message');
 
     service.showNotifications('titile', 'body');
 

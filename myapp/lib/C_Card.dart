@@ -1,8 +1,4 @@
-import 'dart:io';
-import 'dart:isolate';
-
 import 'package:flutter/material.dart';
-import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'ChooseModalBottomSheet.dart';
 import 'ItemsCard.dart';
 import 'NotificationData.dart';
@@ -11,6 +7,13 @@ class C_Card extends StatefulWidget {
   late String Id;
   String name = '';
   late double Value = 0.0;
+  double getValue() {
+    return Value;
+  }
+
+  C_Card({required this.Value}) {
+    this.Value = Value;
+  }
 
   Map<String, dynamic> toJson() {
     print('this was called ');
@@ -28,11 +31,10 @@ class C_Card extends StatefulWidget {
 }
 
 class _C_CardState extends State<C_Card> {
-  late String Id;
-  late UniqueKey tileKey;
   late ChooseModalBottomSheet condition;
   late ChooseModalBottomSheet action;
   late NotificationService service;
+  late double Value = 0.0;
 
   late ItemsCard card;
 
@@ -42,7 +44,7 @@ class _C_CardState extends State<C_Card> {
 
     service = NotificationService();
 
-    widget.Value = 11111111;
+    Value = widget.Value;
 
     condition =
         ChooseModalBottomSheet(name: 'Select Coin :', child: ItemsCard());
@@ -86,7 +88,9 @@ class _C_CardState extends State<C_Card> {
                           width: 80,
                           child: TextField(
                             keyboardType: TextInputType.number,
-                            decoration: InputDecoration(labelText: 'Value:'),
+                            decoration: InputDecoration(
+                                hintText: widget.Value.toString(),
+                                labelText: 'Value:'),
                             //autofocus: true,
                             onTap: () {},
                             onSubmitted: (value) {
