@@ -109,9 +109,7 @@ class _C_CardState extends State<C_Card> {
             Center(
               child: TextButton(
                 child: Text('Apply'),
-                onPressed: () async {
-                  service.showNotifications('Notification', 'body');
-                },
+                onPressed: () async {},
               ),
             ),
           ],
