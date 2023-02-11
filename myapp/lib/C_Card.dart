@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'ChooseModalBottomSheet.dart';
 import 'ItemsCard.dart';
-import 'NotificationData.dart';
+import 'NotificationService.dart';
+import 'Utils.dart';
 
 class C_Card extends StatefulWidget {
   late String Id;
@@ -11,19 +12,19 @@ class C_Card extends StatefulWidget {
     return Value;
   }
 
+  late ServerInfo info;
+
   C_Card({required this.Value}) {
     this.Value = Value;
   }
+  C_Card.info({required this.info}) {}
 
   Map<String, dynamic> toJson() {
     print('this was called ');
 
-    return {
-      'id': 'id',
-      'condition': 'CryptoPrice',
-      'value': this.Value.toString(),
-      'action': 'Standard',
-    };
+    info = new ServerInfo.empty();
+
+    return info.toJson();
   }
 
   @override
@@ -33,16 +34,17 @@ class C_Card extends StatefulWidget {
 class _C_CardState extends State<C_Card> {
   late ChooseModalBottomSheet condition;
   late ChooseModalBottomSheet action;
-  late NotificationService service;
+  late final NotificationService notificationService;
+
   late double Value = 0.0;
 
   late ItemsCard card;
 
   @override
   void initState() {
+    notificationService = NotificationService();
+    notificationService.initializePlatformNotifications();
     super.initState();
-
-    service = NotificationService();
 
     Value = widget.Value;
 
@@ -63,57 +65,14 @@ class _C_CardState extends State<C_Card> {
       child: Padding(
         padding: EdgeInsets.only(top: 10.0, left: 6.0, right: 6.0, bottom: 6.0),
         child: ExpansionTile(
-          maintainState: true,
-          onExpansionChanged: (bool open) {
-            setState(() {
-              widget.name = condition.name;
-            });
-          },
-          title: Text('Conditional Reminder.'),
-          children: [
-            Container(
-                alignment: Alignment.center,
-                child: Padding(
-                    padding: EdgeInsets.all(10),
-                    child: Text("Condition:",
-                        style: TextStyle(fontSize: 20, color: Colors.green)))),
-            Padding(
-                padding: EdgeInsets.all(10),
-                child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: <Widget>[
-                      Text("Coin"),
-                      condition,
-                      SizedBox(
-                          width: 80,
-                          child: TextField(
-                            keyboardType: TextInputType.number,
-                            decoration: InputDecoration(
-                                hintText: widget.Value.toString(),
-                                labelText: 'Value:'),
-                            //autofocus: true,
-                            onTap: () {},
-                            onSubmitted: (value) {
-                              widget.Value = double.parse(value);
-                              print(widget.Value);
-                            },
-                          )),
-                    ])),
-            Container(
-                alignment: Alignment.center,
-                child: Padding(
-                    padding: EdgeInsets.all(10),
-                    child: Text("Action:",
-                        style: TextStyle(fontSize: 22, color: Colors.green)))),
-            Padding(padding: EdgeInsets.all(10), child: action),
-            Center(
-              child: TextButton(
-                child: Text('Apply'),
-                onPressed: () async {},
-              ),
-            ),
-          ],
-        ),
+            maintainState: true,
+            onExpansionChanged: (bool open) {
+              setState(() {
+                widget.name = condition.name;
+              });
+            },
+            title: Text('Conditional Reminder.'),
+            children: DrawCondition()),
       ),
     );
   }
@@ -131,5 +90,58 @@ class _C_CardState extends State<C_Card> {
         });
       },
     ));
+  }
+
+  List<Widget> DrawCondition() {
+    return [
+      Container(
+          alignment: Alignment.center,
+          child: Padding(
+              padding: EdgeInsets.all(10),
+              child: Text("Condition:",
+                  style: TextStyle(fontSize: 20, color: Colors.green)))),
+      Padding(
+          padding: EdgeInsets.all(10),
+          child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: <Widget>[
+                Text("Coin"),
+                condition,
+                SizedBox(
+                    width: 80,
+                    child: TextField(
+                      keyboardType: TextInputType.number,
+                      decoration: InputDecoration(
+                          hintText: widget.Value.toString(),
+                          labelText: 'Value:'),
+                      //autofocus: true,
+                      onTap: () {},
+                      onSubmitted: (value) {
+                        widget.Value = double.parse(value);
+                        print(widget.Value);
+                      },
+                    )),
+              ])),
+      Container(
+          alignment: Alignment.center,
+          child: Padding(
+              padding: EdgeInsets.all(10),
+              child: Text("Action:",
+                  style: TextStyle(fontSize: 22, color: Colors.green)))),
+      Padding(padding: EdgeInsets.all(10), child: action),
+      Center(
+        child: TextButton(
+          child: Text('Apply'),
+          onPressed: () async {
+            Print('Hello world');
+            await notificationService.showLocalNotification(
+                id: 0,
+                title: "This is a notofication.",
+                body: "Notification body!",
+                payload: "payload!");
+          },
+        ),
+      ),
+    ];
   }
 }

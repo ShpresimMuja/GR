@@ -1,9 +1,9 @@
 import 'dart:convert';
+import 'dart:ffi';
 
 import 'package:flutter/material.dart';
 import 'C_Card.dart';
-import 'dart:io';
-import 'package:path_provider/path_provider.dart';
+import 'Utils.dart';
 
 class C_AppBar extends StatefulWidget {
   @override
@@ -81,15 +81,9 @@ class _C_AppBarState extends State<C_AppBar> {
           }),
       floatingActionButton: FloatingActionButton(
         onPressed: () async {
-          showDialog(
-              context: context,
-              builder: (context) {
-                return AlertDialog();
-              });
-
           setState(() {
-            cards.add(C_Card(
-              Value: 0.0,
+            cards.add(C_Card.info(
+              info: ServerInfo.empty(),
             ));
             var index = items.length;
             for (var item in cards) {
@@ -109,54 +103,28 @@ class _C_AppBarState extends State<C_AppBar> {
     );
   }
 
-  Future<String> get _localPath async {
-    final directory = await getApplicationDocumentsDirectory();
-
-    return directory.path;
-  }
-
-  Future<File> get _localFile async {
-    final path = await _localPath;
-    print(path);
-    return File('$path/cards.json');
-  }
-
-  Future<File> writetoFile(String stream) async {
-    final file = await _localFile;
-
-    // Write the file
-    return file.writeAsString(stream);
-  }
-
-  Future<String> readStream() async {
-    try {
-      final file = await _localFile;
-
-      // Read the file
-      final contents = await file.readAsString();
-      print(contents);
-
-      return contents;
-    } catch (e) {
-      // If encountering an error, return 0
-      return '';
-    }
-  }
-
   Future<void> runAsync() async {
     var list = json.decode(await readStream()) as List;
 
     var index = list.length;
-    print(list[0]['value']);
+    //print(list[0]['Price']);
 
     //this is the function i have to modify so it reads onjects from file on start up.
 
     setState(() {
       for (int i = 0; i < list.length; i++) {
-        double value = double.parse(list[i]['value']);
-        cards.add(C_Card(
-          Value: value,
-        ));
+        //double value = double.parse(list[i]);
+
+        print(list[i].runtimeType);
+        var object = Map<String, dynamic>.from(list[i]);
+
+        print(object);
+
+        var info = ServerInfo.empty();
+
+        cards.add(
+          C_Card.info(info: info),
+        );
 
         items.add('Item ${index + 1}');
       }
