@@ -1,0 +1,2150 @@
+define(['dart_sdk', 'packages/flutter/src/painting/alignment.dart', 'packages/flutter/src/animation/curves.dart', 'packages/flutter/src/painting/edge_insets.dart', 'packages/flutter/src/widgets/icon_data.dart', 'packages/flutter/src/painting/border_radius.dart', 'packages/flutter/src/material/colors.dart', 'packages/flutter/src/material/icons.dart', 'packages/flutter/src/widgets/widget_span.dart', 'packages/flutter/src/foundation/change_notifier.dart', 'packages/flutter/src/widgets/animated_cross_fade.dart', 'packages/flutter/src/rendering/flex.dart', 'packages/flutter/src/rendering/proxy_box.dart', 'packages/flutter/src/animation/animation_controller.dart', 'packages/flutter/src/animation/listener_helpers.dart', 'packages/flutter/src/widgets/icon.dart', 'packages/flutter/src/material/icon_button.dart'], (function load__packages__expandable__expandable_dart(dart_sdk, packages__flutter__src__painting__alignment$46dart, packages__flutter__src__animation__curves$46dart, packages__flutter__src__painting__edge_insets$46dart, packages__flutter__src__widgets__icon_data$46dart, packages__flutter__src__painting__border_radius$46dart, packages__flutter__src__material__colors$46dart, packages__flutter__src__material__icons$46dart, packages__flutter__src__widgets__widget_span$46dart, packages__flutter__src__foundation__change_notifier$46dart, packages__flutter__src__widgets__animated_cross_fade$46dart, packages__flutter__src__rendering__flex$46dart, packages__flutter__src__rendering__proxy_box$46dart, packages__flutter__src__animation__animation_controller$46dart, packages__flutter__src__animation__listener_helpers$46dart, packages__flutter__src__widgets__icon$46dart, packages__flutter__src__material__icon_button$46dart) {
+  'use strict';
+  const core = dart_sdk.core;
+  const ui = dart_sdk.ui;
+  const _internal = dart_sdk._internal;
+  const _interceptors = dart_sdk._interceptors;
+  const async = dart_sdk.async;
+  const dart = dart_sdk.dart;
+  const dartx = dart_sdk.dartx;
+  const alignment = packages__flutter__src__painting__alignment$46dart.src__painting__alignment;
+  const curves = packages__flutter__src__animation__curves$46dart.src__animation__curves;
+  const edge_insets = packages__flutter__src__painting__edge_insets$46dart.src__painting__edge_insets;
+  const icon_data = packages__flutter__src__widgets__icon_data$46dart.src__widgets__icon_data;
+  const border_radius = packages__flutter__src__painting__border_radius$46dart.src__painting__border_radius;
+  const colors = packages__flutter__src__material__colors$46dart.src__material__colors;
+  const icons = packages__flutter__src__material__icons$46dart.src__material__icons;
+  const widget_inspector = packages__flutter__src__widgets__widget_span$46dart.src__widgets__widget_inspector;
+  const framework = packages__flutter__src__widgets__widget_span$46dart.src__widgets__framework;
+  const inherited_notifier = packages__flutter__src__widgets__widget_span$46dart.src__widgets__inherited_notifier;
+  const container = packages__flutter__src__widgets__widget_span$46dart.src__widgets__container;
+  const basic = packages__flutter__src__widgets__widget_span$46dart.src__widgets__basic;
+  const gesture_detector = packages__flutter__src__widgets__widget_span$46dart.src__widgets__gesture_detector;
+  const transitions = packages__flutter__src__widgets__widget_span$46dart.src__widgets__transitions;
+  const ticker_provider = packages__flutter__src__widgets__widget_span$46dart.src__widgets__ticker_provider;
+  const change_notifier = packages__flutter__src__foundation__change_notifier$46dart.src__foundation__change_notifier;
+  const animated_cross_fade = packages__flutter__src__widgets__animated_cross_fade$46dart.src__widgets__animated_cross_fade;
+  const flex = packages__flutter__src__rendering__flex$46dart.src__rendering__flex;
+  const proxy_box = packages__flutter__src__rendering__proxy_box$46dart.src__rendering__proxy_box;
+  const animation_controller = packages__flutter__src__animation__animation_controller$46dart.src__animation__animation_controller;
+  const tween = packages__flutter__src__animation__listener_helpers$46dart.src__animation__tween;
+  const animation = packages__flutter__src__animation__listener_helpers$46dart.src__animation__animation;
+  const icon = packages__flutter__src__widgets__icon$46dart.src__widgets__icon;
+  const ink_well = packages__flutter__src__material__icon_button$46dart.src__material__ink_well;
+  var expandable = Object.create(dart.library);
+  var $_equals = dartx._equals;
+  var $reversed = dartx.reversed;
+  var $toList = dartx.toList;
+  var $contains = dartx.contains;
+  dart._checkModuleNullSafetyMode(false);
+  var T = {
+    _LocationL: () => (T._LocationL = dart.constFn(dart.legacy(widget_inspector._Location)))(),
+    VoidTovoid: () => (T.VoidTovoid = dart.constFn(dart.fnType(dart.void, [])))(),
+    ExpandablePanelIconPlacementL: () => (T.ExpandablePanelIconPlacementL = dart.constFn(dart.legacy(expandable.ExpandablePanelIconPlacement)))(),
+    ExpandablePanelHeaderAlignmentL: () => (T.ExpandablePanelHeaderAlignmentL = dart.constFn(dart.legacy(expandable.ExpandablePanelHeaderAlignment)))(),
+    ExpandablePanelBodyAlignmentL: () => (T.ExpandablePanelBodyAlignmentL = dart.constFn(dart.legacy(expandable.ExpandablePanelBodyAlignment)))(),
+    VoidToCrossAxisAlignment: () => (T.VoidToCrossAxisAlignment = dart.constFn(dart.fnType(flex.CrossAxisAlignment, [])))(),
+    WidgetN: () => (T.WidgetN = dart.constFn(dart.nullable(framework.Widget)))(),
+    __ToWidget: () => (T.__ToWidget = dart.constFn(dart.fnType(framework.Widget, [], {}, {widget: T.WidgetN(), wrap: core.bool})))(),
+    JSArrayOfWidget: () => (T.JSArrayOfWidget = dart.constFn(_interceptors.JSArray$(framework.Widget)))(),
+    VoidToWidget: () => (T.VoidToWidget = dart.constFn(dart.fnType(framework.Widget, [])))(),
+    VoidToAlignment: () => (T.VoidToAlignment = dart.constFn(dart.fnType(alignment.Alignment, [])))(),
+    WidgetAndboolToWidget: () => (T.WidgetAndboolToWidget = dart.constFn(dart.fnType(framework.Widget, [framework.Widget, core.bool])))(),
+    BuildContextAndWidgetAndWidgetToExpandable: () => (T.BuildContextAndWidgetAndWidgetToExpandable = dart.constFn(dart.fnType(expandable.Expandable, [framework.BuildContext, framework.Widget, framework.Widget])))(),
+    TweenOfdouble: () => (T.TweenOfdouble = dart.constFn(tween.Tween$(core.double)))(),
+    AnimationStatusL: () => (T.AnimationStatusL = dart.constFn(dart.legacy(animation.AnimationStatus)))(),
+    BuildContextAndWidgetNToTransform: () => (T.BuildContextAndWidgetNToTransform = dart.constFn(dart.fnType(basic.Transform, [framework.BuildContext, T.WidgetN()])))()
+  };
+  var T$Eval = Object.assign({
+    _: () => T$Eval
+  }, T);
+  var S = {
+    _: () => S
+  };
+  var S$Eval = Object.assign({
+    _: () => S$Eval
+  }, S);
+  const CT = Object.create({
+    _: () => (C, CT)
+  });
+  dart.defineLazy(CT, {
+    get C0() {
+      return C[0] = dart.const({
+        __proto__: core.Duration.prototype,
+        [Duration__duration]: 300000
+      });
+    },
+    get C1() {
+      return C[1] = dart.const({
+        __proto__: edge_insets.EdgeInsets.prototype,
+        [EdgeInsets_bottom]: 8,
+        [EdgeInsets_right]: 8,
+        [EdgeInsets_top]: 8,
+        [EdgeInsets_left]: 8
+      });
+    },
+    get C4() {
+      return C[4] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "themeData",
+        [_Location_column]: 7,
+        [_Location_line]: 285,
+        [_Location_file]: null
+      });
+    },
+    get C5() {
+      return C[5] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 7,
+        [_Location_line]: 286,
+        [_Location_file]: null
+      });
+    },
+    get C3() {
+      return C[3] = dart.constList([C[4] || CT.C4, C[5] || CT.C5], T._LocationL());
+    },
+    get C2() {
+      return C[2] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[3] || CT.C3,
+        [_Location_name]: null,
+        [_Location_column]: 12,
+        [_Location_line]: 284,
+        [_Location_file]: "file:///C:/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/expandable-5.0.1/lib/expandable.dart"
+      });
+    },
+    get C8() {
+      return C[8] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "controller",
+        [_Location_column]: 9,
+        [_Location_line]: 343,
+        [_Location_file]: null
+      });
+    },
+    get C9() {
+      return C[9] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 33,
+        [_Location_line]: 343,
+        [_Location_file]: null
+      });
+    },
+    get C7() {
+      return C[7] = dart.constList([C[8] || CT.C8, C[9] || CT.C9], T._LocationL());
+    },
+    get C6() {
+      return C[6] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[7] || CT.C7,
+        [_Location_name]: null,
+        [_Location_column]: 16,
+        [_Location_line]: 342,
+        [_Location_file]: "file:///C:/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/expandable-5.0.1/lib/expandable.dart"
+      });
+    },
+    get C12() {
+      return C[12] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "themeData",
+        [_Location_column]: 36,
+        [_Location_line]: 345,
+        [_Location_file]: null
+      });
+    },
+    get C13() {
+      return C[13] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 54,
+        [_Location_line]: 345,
+        [_Location_file]: null
+      });
+    },
+    get C11() {
+      return C[11] = dart.constList([C[12] || CT.C12, C[13] || CT.C13], T._LocationL());
+    },
+    get C10() {
+      return C[10] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[11] || CT.C11,
+        [_Location_name]: null,
+        [_Location_column]: 11,
+        [_Location_line]: 345,
+        [_Location_file]: "file:///C:/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/expandable-5.0.1/lib/expandable.dart"
+      });
+    },
+    get C16() {
+      return C[16] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "alignment",
+        [_Location_column]: 7,
+        [_Location_line]: 436,
+        [_Location_file]: null
+      });
+    },
+    get C17() {
+      return C[17] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "firstChild",
+        [_Location_column]: 7,
+        [_Location_line]: 437,
+        [_Location_file]: null
+      });
+    },
+    get C18() {
+      return C[18] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "secondChild",
+        [_Location_column]: 7,
+        [_Location_line]: 438,
+        [_Location_file]: null
+      });
+    },
+    get C19() {
+      return C[19] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "firstCurve",
+        [_Location_column]: 7,
+        [_Location_line]: 439,
+        [_Location_file]: null
+      });
+    },
+    get C20() {
+      return C[20] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "secondCurve",
+        [_Location_column]: 7,
+        [_Location_line]: 441,
+        [_Location_file]: null
+      });
+    },
+    get C21() {
+      return C[21] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "sizeCurve",
+        [_Location_column]: 7,
+        [_Location_line]: 443,
+        [_Location_file]: null
+      });
+    },
+    get C22() {
+      return C[22] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "crossFadeState",
+        [_Location_column]: 7,
+        [_Location_line]: 444,
+        [_Location_file]: null
+      });
+    },
+    get C23() {
+      return C[23] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "duration",
+        [_Location_column]: 7,
+        [_Location_line]: 447,
+        [_Location_file]: null
+      });
+    },
+    get C15() {
+      return C[15] = dart.constList([C[16] || CT.C16, C[17] || CT.C17, C[18] || CT.C18, C[19] || CT.C19, C[20] || CT.C20, C[21] || CT.C21, C[22] || CT.C22, C[23] || CT.C23], T._LocationL());
+    },
+    get C14() {
+      return C[14] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[15] || CT.C15,
+        [_Location_name]: null,
+        [_Location_column]: 12,
+        [_Location_line]: 435,
+        [_Location_file]: "file:///C:/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/expandable-5.0.1/lib/expandable.dart"
+      });
+    },
+    get C24() {
+      return C[24] = dart.const({
+        __proto__: expandable.ExpandablePanelIconPlacement.prototype,
+        [_name$]: "ExpandablePanelIconPlacement.left",
+        index: 0
+      });
+    },
+    get C25() {
+      return C[25] = dart.const({
+        __proto__: expandable.ExpandablePanelIconPlacement.prototype,
+        [_name$]: "ExpandablePanelIconPlacement.right",
+        index: 1
+      });
+    },
+    get C26() {
+      return C[26] = dart.constList([C[24] || CT.C24, C[25] || CT.C25], T.ExpandablePanelIconPlacementL());
+    },
+    get C27() {
+      return C[27] = dart.const({
+        __proto__: expandable.ExpandablePanelHeaderAlignment.prototype,
+        [_name$]: "ExpandablePanelHeaderAlignment.top",
+        index: 0
+      });
+    },
+    get C28() {
+      return C[28] = dart.const({
+        __proto__: expandable.ExpandablePanelHeaderAlignment.prototype,
+        [_name$]: "ExpandablePanelHeaderAlignment.center",
+        index: 1
+      });
+    },
+    get C29() {
+      return C[29] = dart.const({
+        __proto__: expandable.ExpandablePanelHeaderAlignment.prototype,
+        [_name$]: "ExpandablePanelHeaderAlignment.bottom",
+        index: 2
+      });
+    },
+    get C30() {
+      return C[30] = dart.constList([C[27] || CT.C27, C[28] || CT.C28, C[29] || CT.C29], T.ExpandablePanelHeaderAlignmentL());
+    },
+    get C31() {
+      return C[31] = dart.const({
+        __proto__: expandable.ExpandablePanelBodyAlignment.prototype,
+        [_name$]: "ExpandablePanelBodyAlignment.left",
+        index: 0
+      });
+    },
+    get C32() {
+      return C[32] = dart.const({
+        __proto__: expandable.ExpandablePanelBodyAlignment.prototype,
+        [_name$]: "ExpandablePanelBodyAlignment.center",
+        index: 1
+      });
+    },
+    get C33() {
+      return C[33] = dart.const({
+        __proto__: expandable.ExpandablePanelBodyAlignment.prototype,
+        [_name$]: "ExpandablePanelBodyAlignment.right",
+        index: 2
+      });
+    },
+    get C34() {
+      return C[34] = dart.constList([C[31] || CT.C31, C[32] || CT.C32, C[33] || CT.C33], T.ExpandablePanelBodyAlignmentL());
+    },
+    get C37() {
+      return C[37] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 32,
+        [_Location_line]: 538,
+        [_Location_file]: null
+      });
+    },
+    get C38() {
+      return C[38] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "theme",
+        [_Location_column]: 47,
+        [_Location_line]: 538,
+        [_Location_file]: null
+      });
+    },
+    get C36() {
+      return C[36] = dart.constList([C[37] || CT.C37, C[38] || CT.C38], T._LocationL());
+    },
+    get C35() {
+      return C[35] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[36] || CT.C36,
+        [_Location_name]: null,
+        [_Location_column]: 15,
+        [_Location_line]: 538,
+        [_Location_file]: "file:///C:/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/expandable-5.0.1/lib/expandable.dart"
+      });
+    },
+    get C40() {
+      return C[40] = dart.constList([], T._LocationL());
+    },
+    get C39() {
+      return C[39] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[40] || CT.C40,
+        [_Location_name]: null,
+        [_Location_column]: 25,
+        [_Location_line]: 539,
+        [_Location_file]: "file:///C:/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/expandable-5.0.1/lib/expandable.dart"
+      });
+    },
+    get C41() {
+      return C[41] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[40] || CT.C40,
+        [_Location_name]: null,
+        [_Location_column]: 30,
+        [_Location_line]: 548,
+        [_Location_file]: "file:///C:/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/expandable-5.0.1/lib/expandable.dart"
+      });
+    },
+    get C44() {
+      return C[44] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 13,
+        [_Location_line]: 548,
+        [_Location_file]: null
+      });
+    },
+    get C43() {
+      return C[43] = dart.constList([C[44] || CT.C44], T._LocationL());
+    },
+    get C42() {
+      return C[42] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[43] || CT.C43,
+        [_Location_name]: null,
+        [_Location_column]: 11,
+        [_Location_line]: 547,
+        [_Location_file]: "file:///C:/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/expandable-5.0.1/lib/expandable.dart"
+      });
+    },
+    get C47() {
+      return C[47] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "theme",
+        [_Location_column]: 38,
+        [_Location_line]: 552,
+        [_Location_file]: null
+      });
+    },
+    get C46() {
+      return C[46] = dart.constList([C[47] || CT.C47], T._LocationL());
+    },
+    get C45() {
+      return C[45] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[46] || CT.C46,
+        [_Location_name]: null,
+        [_Location_column]: 23,
+        [_Location_line]: 552,
+        [_Location_file]: "file:///C:/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/expandable-5.0.1/lib/expandable.dart"
+      });
+    },
+    get C50() {
+      return C[50] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "crossAxisAlignment",
+        [_Location_column]: 15,
+        [_Location_line]: 557,
+        [_Location_file]: null
+      });
+    },
+    get C51() {
+      return C[51] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "children",
+        [_Location_column]: 15,
+        [_Location_line]: 558,
+        [_Location_file]: null
+      });
+    },
+    get C49() {
+      return C[49] = dart.constList([C[50] || CT.C50, C[51] || CT.C51], T._LocationL());
+    },
+    get C48() {
+      return C[48] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[49] || CT.C49,
+        [_Location_name]: null,
+        [_Location_column]: 21,
+        [_Location_line]: 556,
+        [_Location_file]: "file:///C:/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/expandable-5.0.1/lib/expandable.dart"
+      });
+    },
+    get C54() {
+      return C[54] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "alignment",
+        [_Location_column]: 11,
+        [_Location_line]: 581,
+        [_Location_file]: null
+      });
+    },
+    get C55() {
+      return C[55] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 11,
+        [_Location_line]: 582,
+        [_Location_file]: null
+      });
+    },
+    get C53() {
+      return C[53] = dart.constList([C[54] || CT.C54, C[55] || CT.C55], T._LocationL());
+    },
+    get C52() {
+      return C[52] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[53] || CT.C53,
+        [_Location_name]: null,
+        [_Location_column]: 24,
+        [_Location_line]: 580,
+        [_Location_file]: "file:///C:/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/expandable-5.0.1/lib/expandable.dart"
+      });
+    },
+    get C58() {
+      return C[58] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "behavior",
+        [_Location_column]: 11,
+        [_Location_line]: 589,
+        [_Location_file]: null
+      });
+    },
+    get C59() {
+      return C[59] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 11,
+        [_Location_line]: 590,
+        [_Location_file]: null
+      });
+    },
+    get C60() {
+      return C[60] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onTap",
+        [_Location_column]: 11,
+        [_Location_line]: 591,
+        [_Location_file]: null
+      });
+    },
+    get C57() {
+      return C[57] = dart.constList([C[58] || CT.C58, C[59] || CT.C59, C[60] || CT.C60], T._LocationL());
+    },
+    get C56() {
+      return C[56] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[57] || CT.C57,
+        [_Location_name]: null,
+        [_Location_column]: 16,
+        [_Location_line]: 588,
+        [_Location_file]: "file:///C:/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/expandable-5.0.1/lib/expandable.dart"
+      });
+    },
+    get C63() {
+      return C[63] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "collapsed",
+        [_Location_column]: 15,
+        [_Location_line]: 601,
+        [_Location_file]: null
+      });
+    },
+    get C64() {
+      return C[64] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "expanded",
+        [_Location_column]: 15,
+        [_Location_line]: 602,
+        [_Location_file]: null
+      });
+    },
+    get C65() {
+      return C[65] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "theme",
+        [_Location_column]: 15,
+        [_Location_line]: 603,
+        [_Location_file]: null
+      });
+    },
+    get C62() {
+      return C[62] = dart.constList([C[63] || CT.C63, C[64] || CT.C64, C[65] || CT.C65], T._LocationL());
+    },
+    get C61() {
+      return C[61] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[62] || CT.C62,
+        [_Location_name]: null,
+        [_Location_column]: 20,
+        [_Location_line]: 600,
+        [_Location_file]: "file:///C:/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/expandable-5.0.1/lib/expandable.dart"
+      });
+    },
+    get C68() {
+      return C[68] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "crossAxisAlignment",
+        [_Location_column]: 9,
+        [_Location_line]: 613,
+        [_Location_file]: null
+      });
+    },
+    get C69() {
+      return C[69] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "children",
+        [_Location_column]: 9,
+        [_Location_line]: 614,
+        [_Location_file]: null
+      });
+    },
+    get C67() {
+      return C[67] = dart.constList([C[68] || CT.C68, C[69] || CT.C69], T._LocationL());
+    },
+    get C66() {
+      return C[66] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[67] || CT.C67,
+        [_Location_name]: null,
+        [_Location_column]: 14,
+        [_Location_line]: 612,
+        [_Location_file]: "file:///C:/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/expandable-5.0.1/lib/expandable.dart"
+      });
+    },
+    get C72() {
+      return C[72] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "controller",
+        [_Location_column]: 9,
+        [_Location_line]: 625,
+        [_Location_file]: null
+      });
+    },
+    get C73() {
+      return C[73] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 9,
+        [_Location_line]: 626,
+        [_Location_file]: null
+      });
+    },
+    get C71() {
+      return C[71] = dart.constList([C[72] || CT.C72, C[73] || CT.C73], T._LocationL());
+    },
+    get C70() {
+      return C[70] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[71] || CT.C71,
+        [_Location_name]: null,
+        [_Location_column]: 14,
+        [_Location_line]: 624,
+        [_Location_file]: "file:///C:/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/expandable-5.0.1/lib/expandable.dart"
+      });
+    },
+    get C76() {
+      return C[76] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 11,
+        [_Location_line]: 633,
+        [_Location_file]: null
+      });
+    },
+    get C75() {
+      return C[75] = dart.constList([C[76] || CT.C76], T._LocationL());
+    },
+    get C74() {
+      return C[74] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[75] || CT.C75,
+        [_Location_name]: null,
+        [_Location_column]: 16,
+        [_Location_line]: 632,
+        [_Location_file]: "file:///C:/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/expandable-5.0.1/lib/expandable.dart"
+      });
+    },
+    get C78() {
+      return C[78] = dart.const({
+        __proto__: animation.AnimationStatus.prototype,
+        [_name]: "AnimationStatus.dismissed",
+        index: 0
+      });
+    },
+    get C79() {
+      return C[79] = dart.const({
+        __proto__: animation.AnimationStatus.prototype,
+        [_name]: "AnimationStatus.reverse",
+        index: 2
+      });
+    },
+    get C77() {
+      return C[77] = dart.constList([C[78] || CT.C78, C[79] || CT.C79], T.AnimationStatusL());
+    },
+    get C81() {
+      return C[81] = dart.const({
+        __proto__: animation.AnimationStatus.prototype,
+        [_name]: "AnimationStatus.completed",
+        index: 3
+      });
+    },
+    get C82() {
+      return C[82] = dart.const({
+        __proto__: animation.AnimationStatus.prototype,
+        [_name]: "AnimationStatus.forward",
+        index: 1
+      });
+    },
+    get C80() {
+      return C[80] = dart.constList([C[81] || CT.C81, C[82] || CT.C82], T.AnimationStatusL());
+    },
+    get C85() {
+      return C[85] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "icon",
+        [_Location_column]: 30,
+        [_Location_line]: 739,
+        [_Location_file]: null
+      });
+    },
+    get C86() {
+      return C[86] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "color",
+        [_Location_column]: 15,
+        [_Location_line]: 740,
+        [_Location_file]: null
+      });
+    },
+    get C87() {
+      return C[87] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "size",
+        [_Location_column]: 15,
+        [_Location_line]: 741,
+        [_Location_file]: null
+      });
+    },
+    get C84() {
+      return C[84] = dart.constList([C[85] || CT.C85, C[86] || CT.C86, C[87] || CT.C87], T._LocationL());
+    },
+    get C83() {
+      return C[83] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[84] || CT.C84,
+        [_Location_name]: null,
+        [_Location_column]: 20,
+        [_Location_line]: 738,
+        [_Location_file]: "file:///C:/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/expandable-5.0.1/lib/expandable.dart"
+      });
+    },
+    get C90() {
+      return C[90] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "angle",
+        [_Location_column]: 13,
+        [_Location_line]: 734,
+        [_Location_file]: null
+      });
+    },
+    get C91() {
+      return C[91] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 13,
+        [_Location_line]: 738,
+        [_Location_file]: null
+      });
+    },
+    get C89() {
+      return C[89] = dart.constList([C[90] || CT.C90, C[91] || CT.C91], T._LocationL());
+    },
+    get C88() {
+      return C[88] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[89] || CT.C89,
+        [_Location_name]: null,
+        [_Location_column]: 28,
+        [_Location_line]: 733,
+        [_Location_file]: "file:///C:/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/expandable-5.0.1/lib/expandable.dart"
+      });
+    },
+    get C94() {
+      return C[94] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "animation",
+        [_Location_column]: 9,
+        [_Location_line]: 729,
+        [_Location_file]: null
+      });
+    },
+    get C95() {
+      return C[95] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "builder",
+        [_Location_column]: 9,
+        [_Location_line]: 730,
+        [_Location_file]: null
+      });
+    },
+    get C93() {
+      return C[93] = dart.constList([C[94] || CT.C94, C[95] || CT.C95], T._LocationL());
+    },
+    get C92() {
+      return C[92] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[93] || CT.C93,
+        [_Location_name]: null,
+        [_Location_column]: 14,
+        [_Location_line]: 728,
+        [_Location_file]: "file:///C:/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/expandable-5.0.1/lib/expandable.dart"
+      });
+    },
+    get C98() {
+      return C[98] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "padding",
+        [_Location_column]: 7,
+        [_Location_line]: 727,
+        [_Location_file]: null
+      });
+    },
+    get C99() {
+      return C[99] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 7,
+        [_Location_line]: 728,
+        [_Location_file]: null
+      });
+    },
+    get C97() {
+      return C[97] = dart.constList([C[98] || CT.C98, C[99] || CT.C99], T._LocationL());
+    },
+    get C96() {
+      return C[96] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[97] || CT.C97,
+        [_Location_name]: null,
+        [_Location_column]: 12,
+        [_Location_line]: 726,
+        [_Location_file]: "file:///C:/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/expandable-5.0.1/lib/expandable.dart"
+      });
+    },
+    get C102() {
+      return C[102] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onTap",
+        [_Location_column]: 9,
+        [_Location_line]: 764,
+        [_Location_file]: null
+      });
+    },
+    get C103() {
+      return C[103] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 9,
+        [_Location_line]: 765,
+        [_Location_file]: null
+      });
+    },
+    get C104() {
+      return C[104] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "borderRadius",
+        [_Location_column]: 9,
+        [_Location_line]: 766,
+        [_Location_file]: null
+      });
+    },
+    get C101() {
+      return C[101] = dart.constList([C[102] || CT.C102, C[103] || CT.C103, C[104] || CT.C104], T._LocationL());
+    },
+    get C100() {
+      return C[100] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[101] || CT.C101,
+        [_Location_name]: null,
+        [_Location_column]: 14,
+        [_Location_line]: 763,
+        [_Location_file]: "file:///C:/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/expandable-5.0.1/lib/expandable.dart"
+      });
+    },
+    get C107() {
+      return C[107] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onTap",
+        [_Location_column]: 9,
+        [_Location_line]: 770,
+        [_Location_file]: null
+      });
+    },
+    get C108() {
+      return C[108] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 9,
+        [_Location_line]: 771,
+        [_Location_file]: null
+      });
+    },
+    get C106() {
+      return C[106] = dart.constList([C[107] || CT.C107, C[108] || CT.C108], T._LocationL());
+    },
+    get C105() {
+      return C[105] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[106] || CT.C106,
+        [_Location_name]: null,
+        [_Location_column]: 14,
+        [_Location_line]: 769,
+        [_Location_file]: "file:///C:/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/expandable-5.0.1/lib/expandable.dart"
+      });
+    }
+  }, false);
+  var C = Array(109).fill(void 0);
+  var I = [
+    "file:///C:/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/expandable-5.0.1/lib/expandable.dart",
+    "package:expandable/expandable.dart"
+  ];
+  var iconColor$ = dart.privateName(expandable, "ExpandableThemeData.iconColor");
+  var useInkWell$ = dart.privateName(expandable, "ExpandableThemeData.useInkWell");
+  var animationDuration$ = dart.privateName(expandable, "ExpandableThemeData.animationDuration");
+  var scrollAnimationDuration$ = dart.privateName(expandable, "ExpandableThemeData.scrollAnimationDuration");
+  var crossFadePoint$ = dart.privateName(expandable, "ExpandableThemeData.crossFadePoint");
+  var alignment$ = dart.privateName(expandable, "ExpandableThemeData.alignment");
+  var fadeCurve$ = dart.privateName(expandable, "ExpandableThemeData.fadeCurve");
+  var sizeCurve$ = dart.privateName(expandable, "ExpandableThemeData.sizeCurve");
+  var headerAlignment$ = dart.privateName(expandable, "ExpandableThemeData.headerAlignment");
+  var bodyAlignment$ = dart.privateName(expandable, "ExpandableThemeData.bodyAlignment");
+  var iconPlacement$ = dart.privateName(expandable, "ExpandableThemeData.iconPlacement");
+  var tapHeaderToExpand$ = dart.privateName(expandable, "ExpandableThemeData.tapHeaderToExpand");
+  var tapBodyToExpand$ = dart.privateName(expandable, "ExpandableThemeData.tapBodyToExpand");
+  var tapBodyToCollapse$ = dart.privateName(expandable, "ExpandableThemeData.tapBodyToCollapse");
+  var hasIcon$ = dart.privateName(expandable, "ExpandableThemeData.hasIcon");
+  var iconSize$ = dart.privateName(expandable, "ExpandableThemeData.iconSize");
+  var iconPadding$ = dart.privateName(expandable, "ExpandableThemeData.iconPadding");
+  var iconRotationAngle$ = dart.privateName(expandable, "ExpandableThemeData.iconRotationAngle");
+  var expandIcon$ = dart.privateName(expandable, "ExpandableThemeData.expandIcon");
+  var collapseIcon$ = dart.privateName(expandable, "ExpandableThemeData.collapseIcon");
+  var inkWellBorderRadius$ = dart.privateName(expandable, "ExpandableThemeData.inkWellBorderRadius");
+  var Duration__duration = dart.privateName(core, "Duration._duration");
+  var EdgeInsets_bottom = dart.privateName(edge_insets, "EdgeInsets.bottom");
+  var EdgeInsets_right = dart.privateName(edge_insets, "EdgeInsets.right");
+  var EdgeInsets_top = dart.privateName(edge_insets, "EdgeInsets.top");
+  var EdgeInsets_left = dart.privateName(edge_insets, "EdgeInsets.left");
+  expandable.ExpandableThemeData = class ExpandableThemeData extends core.Object {
+    get iconColor() {
+      return this[iconColor$];
+    }
+    set iconColor(value) {
+      super.iconColor = value;
+    }
+    get useInkWell() {
+      return this[useInkWell$];
+    }
+    set useInkWell(value) {
+      super.useInkWell = value;
+    }
+    get animationDuration() {
+      return this[animationDuration$];
+    }
+    set animationDuration(value) {
+      super.animationDuration = value;
+    }
+    get scrollAnimationDuration() {
+      return this[scrollAnimationDuration$];
+    }
+    set scrollAnimationDuration(value) {
+      super.scrollAnimationDuration = value;
+    }
+    get crossFadePoint() {
+      return this[crossFadePoint$];
+    }
+    set crossFadePoint(value) {
+      super.crossFadePoint = value;
+    }
+    get alignment() {
+      return this[alignment$];
+    }
+    set alignment(value) {
+      super.alignment = value;
+    }
+    get fadeCurve() {
+      return this[fadeCurve$];
+    }
+    set fadeCurve(value) {
+      super.fadeCurve = value;
+    }
+    get sizeCurve() {
+      return this[sizeCurve$];
+    }
+    set sizeCurve(value) {
+      super.sizeCurve = value;
+    }
+    get headerAlignment() {
+      return this[headerAlignment$];
+    }
+    set headerAlignment(value) {
+      super.headerAlignment = value;
+    }
+    get bodyAlignment() {
+      return this[bodyAlignment$];
+    }
+    set bodyAlignment(value) {
+      super.bodyAlignment = value;
+    }
+    get iconPlacement() {
+      return this[iconPlacement$];
+    }
+    set iconPlacement(value) {
+      super.iconPlacement = value;
+    }
+    get tapHeaderToExpand() {
+      return this[tapHeaderToExpand$];
+    }
+    set tapHeaderToExpand(value) {
+      super.tapHeaderToExpand = value;
+    }
+    get tapBodyToExpand() {
+      return this[tapBodyToExpand$];
+    }
+    set tapBodyToExpand(value) {
+      super.tapBodyToExpand = value;
+    }
+    get tapBodyToCollapse() {
+      return this[tapBodyToCollapse$];
+    }
+    set tapBodyToCollapse(value) {
+      super.tapBodyToCollapse = value;
+    }
+    get hasIcon() {
+      return this[hasIcon$];
+    }
+    set hasIcon(value) {
+      super.hasIcon = value;
+    }
+    get iconSize() {
+      return this[iconSize$];
+    }
+    set iconSize(value) {
+      super.iconSize = value;
+    }
+    get iconPadding() {
+      return this[iconPadding$];
+    }
+    set iconPadding(value) {
+      super.iconPadding = value;
+    }
+    get iconRotationAngle() {
+      return this[iconRotationAngle$];
+    }
+    set iconRotationAngle(value) {
+      super.iconRotationAngle = value;
+    }
+    get expandIcon() {
+      return this[expandIcon$];
+    }
+    set expandIcon(value) {
+      super.expandIcon = value;
+    }
+    get collapseIcon() {
+      return this[collapseIcon$];
+    }
+    set collapseIcon(value) {
+      super.collapseIcon = value;
+    }
+    get inkWellBorderRadius() {
+      return this[inkWellBorderRadius$];
+    }
+    set inkWellBorderRadius(value) {
+      super.inkWellBorderRadius = value;
+    }
+    static combine(theme, defaults) {
+      let t0, t0$, t0$0, t0$1, t0$2, t0$3, t0$4, t0$5, t0$6, t0$7, t0$8, t0$9, t0$10, t0$11, t0$12, t0$13, t0$14, t0$15, t0$16, t0$17, t0$18, t0$19;
+      if (defaults == null || dart.test(defaults.isEmpty())) {
+        t0 = theme;
+        return t0 == null ? expandable.ExpandableThemeData.empty : t0;
+      } else if (theme == null || dart.test(theme.isEmpty())) {
+        return defaults;
+      } else if (dart.test(theme.isFull())) {
+        return theme;
+      } else {
+        return new expandable.ExpandableThemeData.new({iconColor: (t0$ = theme.iconColor, t0$ == null ? defaults.iconColor : t0$), useInkWell: (t0$0 = theme.useInkWell, t0$0 == null ? defaults.useInkWell : t0$0), inkWellBorderRadius: (t0$1 = theme.inkWellBorderRadius, t0$1 == null ? defaults.inkWellBorderRadius : t0$1), animationDuration: (t0$2 = theme.animationDuration, t0$2 == null ? defaults.animationDuration : t0$2), scrollAnimationDuration: (t0$3 = theme.scrollAnimationDuration, t0$3 == null ? defaults.scrollAnimationDuration : t0$3), crossFadePoint: (t0$4 = theme.crossFadePoint, t0$4 == null ? defaults.crossFadePoint : t0$4), fadeCurve: (t0$5 = theme.fadeCurve, t0$5 == null ? defaults.fadeCurve : t0$5), sizeCurve: (t0$6 = theme.sizeCurve, t0$6 == null ? defaults.sizeCurve : t0$6), alignment: (t0$7 = theme.alignment, t0$7 == null ? defaults.alignment : t0$7), headerAlignment: (t0$8 = theme.headerAlignment, t0$8 == null ? defaults.headerAlignment : t0$8), bodyAlignment: (t0$9 = theme.bodyAlignment, t0$9 == null ? defaults.bodyAlignment : t0$9), iconPlacement: (t0$10 = theme.iconPlacement, t0$10 == null ? defaults.iconPlacement : t0$10), tapHeaderToExpand: (t0$11 = theme.tapHeaderToExpand, t0$11 == null ? defaults.tapHeaderToExpand : t0$11), tapBodyToExpand: (t0$12 = theme.tapBodyToExpand, t0$12 == null ? defaults.tapBodyToExpand : t0$12), tapBodyToCollapse: (t0$13 = theme.tapBodyToCollapse, t0$13 == null ? defaults.tapBodyToCollapse : t0$13), hasIcon: (t0$14 = theme.hasIcon, t0$14 == null ? defaults.hasIcon : t0$14), iconSize: (t0$15 = theme.iconSize, t0$15 == null ? defaults.iconSize : t0$15), iconPadding: (t0$16 = theme.iconPadding, t0$16 == null ? defaults.iconPadding : t0$16), iconRotationAngle: (t0$17 = theme.iconRotationAngle, t0$17 == null ? defaults.iconRotationAngle : t0$17), expandIcon: (t0$18 = theme.expandIcon, t0$18 == null ? defaults.expandIcon : t0$18), collapseIcon: (t0$19 = theme.collapseIcon, t0$19 == null ? defaults.collapseIcon : t0$19)});
+      }
+    }
+    get collapsedFadeStart() {
+      return dart.nullCheck(this.crossFadePoint) < 0.5 ? 0.0 : dart.nullCheck(this.crossFadePoint) * 2 - 1;
+    }
+    get collapsedFadeEnd() {
+      return dart.nullCheck(this.crossFadePoint) < 0.5 ? 2 * dart.nullCheck(this.crossFadePoint) : 1.0;
+    }
+    get expandedFadeStart() {
+      return dart.nullCheck(this.crossFadePoint) < 0.5 ? 0.0 : dart.nullCheck(this.crossFadePoint) * 2 - 1;
+    }
+    get expandedFadeEnd() {
+      return dart.nullCheck(this.crossFadePoint) < 0.5 ? 2 * dart.nullCheck(this.crossFadePoint) : 1.0;
+    }
+    nullIfEmpty() {
+      return dart.test(this.isEmpty()) ? null : this;
+    }
+    isEmpty() {
+      return this._equals(expandable.ExpandableThemeData.empty);
+    }
+    isFull() {
+      return this.iconColor != null && this.useInkWell != null && this.inkWellBorderRadius != null && this.animationDuration != null && this.scrollAnimationDuration != null && this.crossFadePoint != null && this.fadeCurve != null && this.sizeCurve != null && this.alignment != null && this.headerAlignment != null && this.bodyAlignment != null && this.iconPlacement != null && this.tapHeaderToExpand != null && this.tapBodyToExpand != null && this.tapBodyToCollapse != null && this.hasIcon != null && this.iconRotationAngle != null && this.expandIcon != null && this.collapseIcon != null;
+    }
+    _equals(o) {
+      if (o == null) return false;
+      if (this === o) {
+        return true;
+      } else if (expandable.ExpandableThemeData.is(o)) {
+        return dart.equals(this.iconColor, o.iconColor) && this.useInkWell == o.useInkWell && dart.equals(this.inkWellBorderRadius, o.inkWellBorderRadius) && dart.equals(this.animationDuration, o.animationDuration) && dart.equals(this.scrollAnimationDuration, o.scrollAnimationDuration) && this.crossFadePoint == o.crossFadePoint && dart.equals(this.fadeCurve, o.fadeCurve) && dart.equals(this.sizeCurve, o.sizeCurve) && dart.equals(this.alignment, o.alignment) && this.headerAlignment == o.headerAlignment && this.bodyAlignment == o.bodyAlignment && this.iconPlacement == o.iconPlacement && this.tapHeaderToExpand == o.tapHeaderToExpand && this.tapBodyToExpand == o.tapBodyToExpand && this.tapBodyToCollapse == o.tapBodyToCollapse && this.hasIcon == o.hasIcon && this.iconRotationAngle == o.iconRotationAngle && dart.equals(this.expandIcon, o.expandIcon) && dart.equals(this.collapseIcon, o.collapseIcon);
+      } else {
+        return false;
+      }
+    }
+    get hashCode() {
+      return 0;
+    }
+    static of(context, opts) {
+      let t0, t0$;
+      if (context == null) dart.nullFailed(I[0], 253, 46, "context");
+      let rebuildOnChange = opts && 'rebuildOnChange' in opts ? opts.rebuildOnChange : true;
+      if (rebuildOnChange == null) dart.nullFailed(I[0], 254, 13, "rebuildOnChange");
+      let notifier = dart.test(rebuildOnChange) ? context.dependOnInheritedWidgetOfExactType(expandable._ExpandableThemeNotifier) : context.findAncestorWidgetOfExactType(expandable._ExpandableThemeNotifier);
+      t0$ = (t0 = notifier, t0 == null ? null : t0.themeData);
+      return t0$ == null ? expandable.ExpandableThemeData.defaults : t0$;
+    }
+    static withDefaults(theme, context, opts) {
+      if (context == null) dart.nullFailed(I[0], 262, 48, "context");
+      let rebuildOnChange = opts && 'rebuildOnChange' in opts ? opts.rebuildOnChange : true;
+      if (rebuildOnChange == null) dart.nullFailed(I[0], 263, 13, "rebuildOnChange");
+      if (theme != null && dart.test(theme.isFull())) {
+        return theme;
+      } else {
+        return expandable.ExpandableThemeData.combine(expandable.ExpandableThemeData.combine(theme, expandable.ExpandableThemeData.of(context, {rebuildOnChange: rebuildOnChange})), expandable.ExpandableThemeData.defaults);
+      }
+    }
+  };
+  (expandable.ExpandableThemeData.new = function(opts) {
+    let iconColor = opts && 'iconColor' in opts ? opts.iconColor : null;
+    let useInkWell = opts && 'useInkWell' in opts ? opts.useInkWell : null;
+    let animationDuration = opts && 'animationDuration' in opts ? opts.animationDuration : null;
+    let scrollAnimationDuration = opts && 'scrollAnimationDuration' in opts ? opts.scrollAnimationDuration : null;
+    let crossFadePoint = opts && 'crossFadePoint' in opts ? opts.crossFadePoint : null;
+    let fadeCurve = opts && 'fadeCurve' in opts ? opts.fadeCurve : null;
+    let sizeCurve = opts && 'sizeCurve' in opts ? opts.sizeCurve : null;
+    let alignment = opts && 'alignment' in opts ? opts.alignment : null;
+    let headerAlignment = opts && 'headerAlignment' in opts ? opts.headerAlignment : null;
+    let bodyAlignment = opts && 'bodyAlignment' in opts ? opts.bodyAlignment : null;
+    let iconPlacement = opts && 'iconPlacement' in opts ? opts.iconPlacement : null;
+    let tapHeaderToExpand = opts && 'tapHeaderToExpand' in opts ? opts.tapHeaderToExpand : null;
+    let tapBodyToExpand = opts && 'tapBodyToExpand' in opts ? opts.tapBodyToExpand : null;
+    let tapBodyToCollapse = opts && 'tapBodyToCollapse' in opts ? opts.tapBodyToCollapse : null;
+    let hasIcon = opts && 'hasIcon' in opts ? opts.hasIcon : null;
+    let iconSize = opts && 'iconSize' in opts ? opts.iconSize : null;
+    let iconPadding = opts && 'iconPadding' in opts ? opts.iconPadding : null;
+    let iconRotationAngle = opts && 'iconRotationAngle' in opts ? opts.iconRotationAngle : null;
+    let expandIcon = opts && 'expandIcon' in opts ? opts.expandIcon : null;
+    let collapseIcon = opts && 'collapseIcon' in opts ? opts.collapseIcon : null;
+    let inkWellBorderRadius = opts && 'inkWellBorderRadius' in opts ? opts.inkWellBorderRadius : null;
+    this[iconColor$] = iconColor;
+    this[useInkWell$] = useInkWell;
+    this[animationDuration$] = animationDuration;
+    this[scrollAnimationDuration$] = scrollAnimationDuration;
+    this[crossFadePoint$] = crossFadePoint;
+    this[fadeCurve$] = fadeCurve;
+    this[sizeCurve$] = sizeCurve;
+    this[alignment$] = alignment;
+    this[headerAlignment$] = headerAlignment;
+    this[bodyAlignment$] = bodyAlignment;
+    this[iconPlacement$] = iconPlacement;
+    this[tapHeaderToExpand$] = tapHeaderToExpand;
+    this[tapBodyToExpand$] = tapBodyToExpand;
+    this[tapBodyToCollapse$] = tapBodyToCollapse;
+    this[hasIcon$] = hasIcon;
+    this[iconSize$] = iconSize;
+    this[iconPadding$] = iconPadding;
+    this[iconRotationAngle$] = iconRotationAngle;
+    this[expandIcon$] = expandIcon;
+    this[collapseIcon$] = collapseIcon;
+    this[inkWellBorderRadius$] = inkWellBorderRadius;
+    ;
+  }).prototype = expandable.ExpandableThemeData.prototype;
+  dart.addTypeTests(expandable.ExpandableThemeData);
+  dart.addTypeCaches(expandable.ExpandableThemeData);
+  dart.setMethodSignature(expandable.ExpandableThemeData, () => ({
+    __proto__: dart.getMethods(expandable.ExpandableThemeData.__proto__),
+    nullIfEmpty: dart.fnType(dart.nullable(expandable.ExpandableThemeData), []),
+    isEmpty: dart.fnType(core.bool, []),
+    isFull: dart.fnType(core.bool, []),
+    _equals: dart.fnType(core.bool, [dart.dynamic]),
+    [$_equals]: dart.fnType(core.bool, [dart.dynamic])
+  }));
+  dart.setGetterSignature(expandable.ExpandableThemeData, () => ({
+    __proto__: dart.getGetters(expandable.ExpandableThemeData.__proto__),
+    collapsedFadeStart: core.double,
+    collapsedFadeEnd: core.double,
+    expandedFadeStart: core.double,
+    expandedFadeEnd: core.double
+  }));
+  dart.setLibraryUri(expandable.ExpandableThemeData, I[1]);
+  dart.setFieldSignature(expandable.ExpandableThemeData, () => ({
+    __proto__: dart.getFields(expandable.ExpandableThemeData.__proto__),
+    iconColor: dart.finalFieldType(dart.nullable(ui.Color)),
+    useInkWell: dart.finalFieldType(dart.nullable(core.bool)),
+    animationDuration: dart.finalFieldType(dart.nullable(core.Duration)),
+    scrollAnimationDuration: dart.finalFieldType(dart.nullable(core.Duration)),
+    crossFadePoint: dart.finalFieldType(dart.nullable(core.double)),
+    alignment: dart.finalFieldType(dart.nullable(alignment.AlignmentGeometry)),
+    fadeCurve: dart.finalFieldType(dart.nullable(curves.Curve)),
+    sizeCurve: dart.finalFieldType(dart.nullable(curves.Curve)),
+    headerAlignment: dart.finalFieldType(dart.nullable(expandable.ExpandablePanelHeaderAlignment)),
+    bodyAlignment: dart.finalFieldType(dart.nullable(expandable.ExpandablePanelBodyAlignment)),
+    iconPlacement: dart.finalFieldType(dart.nullable(expandable.ExpandablePanelIconPlacement)),
+    tapHeaderToExpand: dart.finalFieldType(dart.nullable(core.bool)),
+    tapBodyToExpand: dart.finalFieldType(dart.nullable(core.bool)),
+    tapBodyToCollapse: dart.finalFieldType(dart.nullable(core.bool)),
+    hasIcon: dart.finalFieldType(dart.nullable(core.bool)),
+    iconSize: dart.finalFieldType(dart.nullable(core.double)),
+    iconPadding: dart.finalFieldType(dart.nullable(edge_insets.EdgeInsets)),
+    iconRotationAngle: dart.finalFieldType(dart.nullable(core.double)),
+    expandIcon: dart.finalFieldType(dart.nullable(icon_data.IconData)),
+    collapseIcon: dart.finalFieldType(dart.nullable(icon_data.IconData)),
+    inkWellBorderRadius: dart.finalFieldType(dart.nullable(border_radius.BorderRadius))
+  }));
+  dart.defineExtensionMethods(expandable.ExpandableThemeData, ['_equals']);
+  dart.defineExtensionAccessors(expandable.ExpandableThemeData, ['hashCode']);
+  dart.defineLazy(expandable.ExpandableThemeData, {
+    /*expandable.ExpandableThemeData.defaults*/get defaults() {
+      return new expandable.ExpandableThemeData.new({iconColor: colors.Colors.black54, useInkWell: true, inkWellBorderRadius: border_radius.BorderRadius.zero, animationDuration: C[0] || CT.C0, scrollAnimationDuration: C[0] || CT.C0, crossFadePoint: 0.5, fadeCurve: curves.Curves.linear, sizeCurve: curves.Curves.fastOutSlowIn, alignment: alignment.Alignment.topLeft, headerAlignment: expandable.ExpandablePanelHeaderAlignment.top, bodyAlignment: expandable.ExpandablePanelBodyAlignment.left, iconPlacement: expandable.ExpandablePanelIconPlacement.right, tapHeaderToExpand: true, tapBodyToExpand: false, tapBodyToCollapse: false, hasIcon: true, iconSize: 24.0, iconPadding: C[1] || CT.C1, iconRotationAngle: -3.141592653589793, expandIcon: icons.Icons.expand_more, collapseIcon: icons.Icons.expand_more});
+    },
+    /*expandable.ExpandableThemeData.empty*/get empty() {
+      return new expandable.ExpandableThemeData.new();
+    }
+  }, false);
+  var data$ = dart.privateName(expandable, "ExpandableTheme.data");
+  var child$ = dart.privateName(expandable, "ExpandableTheme.child");
+  var _Location_parameterLocations = dart.privateName(widget_inspector, "_Location.parameterLocations");
+  var _Location_name = dart.privateName(widget_inspector, "_Location.name");
+  var _Location_column = dart.privateName(widget_inspector, "_Location.column");
+  var _Location_line = dart.privateName(widget_inspector, "_Location.line");
+  var _Location_file = dart.privateName(widget_inspector, "_Location.file");
+  expandable.ExpandableTheme = class ExpandableTheme extends framework.StatelessWidget {
+    get data() {
+      return this[data$];
+    }
+    set data(value) {
+      super.data = value;
+    }
+    get child() {
+      return this[child$];
+    }
+    set child(value) {
+      super.child = value;
+    }
+    build(context) {
+      let t0;
+      if (context == null) dart.nullFailed(I[0], 281, 29, "context");
+      let n = context.dependOnInheritedWidgetOfExactType(expandable._ExpandableThemeNotifier);
+      return new expandable._ExpandableThemeNotifier.new({themeData: expandable.ExpandableThemeData.combine(this.data, (t0 = n, t0 == null ? null : t0.themeData)), child: this.child, $creationLocationd_0dea112b090073317d4: C[2] || CT.C2});
+    }
+  };
+  (expandable.ExpandableTheme.new = function(opts) {
+    let data = opts && 'data' in opts ? opts.data : null;
+    if (data == null) dart.nullFailed(I[0], 278, 34, "data");
+    let child = opts && 'child' in opts ? opts.child : null;
+    if (child == null) dart.nullFailed(I[0], 278, 54, "child");
+    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
+    this[data$] = data;
+    this[child$] = child;
+    expandable.ExpandableTheme.__proto__.new.call(this, {$creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
+    ;
+  }).prototype = expandable.ExpandableTheme.prototype;
+  dart.addTypeTests(expandable.ExpandableTheme);
+  dart.addTypeCaches(expandable.ExpandableTheme);
+  dart.setMethodSignature(expandable.ExpandableTheme, () => ({
+    __proto__: dart.getMethods(expandable.ExpandableTheme.__proto__),
+    build: dart.fnType(framework.Widget, [framework.BuildContext])
+  }));
+  dart.setLibraryUri(expandable.ExpandableTheme, I[1]);
+  dart.setFieldSignature(expandable.ExpandableTheme, () => ({
+    __proto__: dart.getFields(expandable.ExpandableTheme.__proto__),
+    data: dart.finalFieldType(expandable.ExpandableThemeData),
+    child: dart.finalFieldType(framework.Widget)
+  }));
+  var controller$ = dart.privateName(expandable, "ExpandableNotifier.controller");
+  var initialExpanded$ = dart.privateName(expandable, "ExpandableNotifier.initialExpanded");
+  var child$0 = dart.privateName(expandable, "ExpandableNotifier.child");
+  expandable.ExpandableNotifier = class ExpandableNotifier extends framework.StatefulWidget {
+    get controller() {
+      return this[controller$];
+    }
+    set controller(value) {
+      super.controller = value;
+    }
+    get initialExpanded() {
+      return this[initialExpanded$];
+    }
+    set initialExpanded(value) {
+      super.initialExpanded = value;
+    }
+    get child() {
+      return this[child$0];
+    }
+    set child(value) {
+      super.child = value;
+    }
+    createState() {
+      return new expandable._ExpandableNotifierState.new();
+    }
+  };
+  (expandable.ExpandableNotifier.new = function(opts) {
+    let key = opts && 'key' in opts ? opts.key : null;
+    let controller = opts && 'controller' in opts ? opts.controller : null;
+    let initialExpanded = opts && 'initialExpanded' in opts ? opts.initialExpanded : null;
+    let child = opts && 'child' in opts ? opts.child : null;
+    if (child == null) dart.nullFailed(I[0], 310, 21, "child");
+    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
+    this[controller$] = controller;
+    this[initialExpanded$] = initialExpanded;
+    this[child$0] = child;
+    if (!!(controller != null && initialExpanded != null)) dart.assertFailed(null, I[0], 311, 16, "!(controller != null && initialExpanded != null)");
+    expandable.ExpandableNotifier.__proto__.new.call(this, {key: key, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
+    ;
+  }).prototype = expandable.ExpandableNotifier.prototype;
+  dart.addTypeTests(expandable.ExpandableNotifier);
+  dart.addTypeCaches(expandable.ExpandableNotifier);
+  dart.setMethodSignature(expandable.ExpandableNotifier, () => ({
+    __proto__: dart.getMethods(expandable.ExpandableNotifier.__proto__),
+    createState: dart.fnType(expandable._ExpandableNotifierState, [])
+  }));
+  dart.setLibraryUri(expandable.ExpandableNotifier, I[1]);
+  dart.setFieldSignature(expandable.ExpandableNotifier, () => ({
+    __proto__: dart.getFields(expandable.ExpandableNotifier.__proto__),
+    controller: dart.finalFieldType(dart.nullable(expandable.ExpandableController)),
+    initialExpanded: dart.finalFieldType(dart.nullable(core.bool)),
+    child: dart.finalFieldType(framework.Widget)
+  }));
+  expandable._ExpandableNotifierState = class _ExpandableNotifierState extends framework.State$(expandable.ExpandableNotifier) {
+    initState() {
+      let t1, t0;
+      super.initState();
+      this.controller = (t0 = this.widget.controller, t0 == null ? new expandable.ExpandableController.new({initialExpanded: (t1 = this.widget.initialExpanded, t1 == null ? false : t1)}) : t0);
+    }
+    didUpdateWidget(oldWidget) {
+      expandable.ExpandableNotifier.as(oldWidget);
+      if (oldWidget == null) dart.nullFailed(I[0], 330, 43, "oldWidget");
+      super.didUpdateWidget(oldWidget);
+      if (!dart.equals(this.widget.controller, oldWidget.controller) && this.widget.controller != null) {
+        this.setState(dart.fn(() => {
+          this.controller = this.widget.controller;
+        }, T.VoidTovoid()));
+      }
+    }
+    build(context) {
+      if (context == null) dart.nullFailed(I[0], 341, 29, "context");
+      let cn = new expandable._ExpandableControllerNotifier.new({controller: this.controller, child: this.widget.child, $creationLocationd_0dea112b090073317d4: C[6] || CT.C6});
+      return this.theme != null ? new expandable._ExpandableThemeNotifier.new({themeData: this.theme, child: cn, $creationLocationd_0dea112b090073317d4: C[10] || CT.C10}) : cn;
+    }
+  };
+  (expandable._ExpandableNotifierState.new = function() {
+    this.controller = null;
+    this.theme = null;
+    expandable._ExpandableNotifierState.__proto__.new.call(this);
+    ;
+  }).prototype = expandable._ExpandableNotifierState.prototype;
+  dart.addTypeTests(expandable._ExpandableNotifierState);
+  dart.addTypeCaches(expandable._ExpandableNotifierState);
+  dart.setMethodSignature(expandable._ExpandableNotifierState, () => ({
+    __proto__: dart.getMethods(expandable._ExpandableNotifierState.__proto__),
+    build: dart.fnType(framework.Widget, [framework.BuildContext])
+  }));
+  dart.setLibraryUri(expandable._ExpandableNotifierState, I[1]);
+  dart.setFieldSignature(expandable._ExpandableNotifierState, () => ({
+    __proto__: dart.getFields(expandable._ExpandableNotifierState.__proto__),
+    controller: dart.fieldType(dart.nullable(expandable.ExpandableController)),
+    theme: dart.fieldType(dart.nullable(expandable.ExpandableThemeData))
+  }));
+  expandable.ExpandableController = class ExpandableController extends change_notifier.ValueNotifier$(core.bool) {
+    get expanded() {
+      return this.value;
+    }
+    set expanded(exp) {
+      if (exp == null) dart.nullFailed(I[0], 385, 21, "exp");
+      this.value = exp;
+    }
+    toggle() {
+      this.expanded = !dart.test(this.expanded);
+    }
+    static of(context, opts) {
+      let t0;
+      if (context == null) dart.nullFailed(I[0], 394, 48, "context");
+      let rebuildOnChange = opts && 'rebuildOnChange' in opts ? opts.rebuildOnChange : true;
+      if (rebuildOnChange == null) dart.nullFailed(I[0], 395, 13, "rebuildOnChange");
+      let required = opts && 'required' in opts ? opts.required : false;
+      if (required == null) dart.nullFailed(I[0], 395, 42, "required");
+      let notifier = dart.test(rebuildOnChange) ? context.dependOnInheritedWidgetOfExactType(expandable._ExpandableControllerNotifier) : context.findAncestorWidgetOfExactType(expandable._ExpandableControllerNotifier);
+      if (!(notifier != null || !dart.test(required))) dart.assertFailed("ExpandableNotifier is not found in widget tree", I[0], 401, 12, "notifier != null || !required");
+      t0 = notifier;
+      return t0 == null ? null : t0.notifier;
+    }
+  };
+  (expandable.ExpandableController.new = function(opts) {
+    let t0;
+    let initialExpanded = opts && 'initialExpanded' in opts ? opts.initialExpanded : null;
+    expandable.ExpandableController.__proto__.new.call(this, (t0 = initialExpanded, t0 == null ? false : t0));
+    ;
+  }).prototype = expandable.ExpandableController.prototype;
+  dart.addTypeTests(expandable.ExpandableController);
+  dart.addTypeCaches(expandable.ExpandableController);
+  dart.setMethodSignature(expandable.ExpandableController, () => ({
+    __proto__: dart.getMethods(expandable.ExpandableController.__proto__),
+    toggle: dart.fnType(dart.void, [])
+  }));
+  dart.setGetterSignature(expandable.ExpandableController, () => ({
+    __proto__: dart.getGetters(expandable.ExpandableController.__proto__),
+    expanded: core.bool
+  }));
+  dart.setSetterSignature(expandable.ExpandableController, () => ({
+    __proto__: dart.getSetters(expandable.ExpandableController.__proto__),
+    expanded: core.bool
+  }));
+  dart.setLibraryUri(expandable.ExpandableController, I[1]);
+  expandable._ExpandableControllerNotifier = class _ExpandableControllerNotifier extends inherited_notifier.InheritedNotifier$(expandable.ExpandableController) {};
+  (expandable._ExpandableControllerNotifier.new = function(opts) {
+    let controller = opts && 'controller' in opts ? opts.controller : null;
+    let child = opts && 'child' in opts ? opts.child : null;
+    if (child == null) dart.nullFailed(I[0], 355, 67, "child");
+    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
+    expandable._ExpandableControllerNotifier.__proto__.new.call(this, {notifier: controller, child: child, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
+    ;
+  }).prototype = expandable._ExpandableControllerNotifier.prototype;
+  dart.addTypeTests(expandable._ExpandableControllerNotifier);
+  dart.addTypeCaches(expandable._ExpandableControllerNotifier);
+  dart.setLibraryUri(expandable._ExpandableControllerNotifier, I[1]);
+  expandable._ExpandableThemeNotifier = class _ExpandableThemeNotifier extends framework.InheritedWidget {
+    updateShouldNotify(oldWidget) {
+      framework.InheritedWidget.as(oldWidget);
+      if (oldWidget == null) dart.nullFailed(I[0], 368, 43, "oldWidget");
+      return !(expandable._ExpandableThemeNotifier.is(oldWidget) && dart.equals(oldWidget.themeData, this.themeData));
+    }
+  };
+  (expandable._ExpandableThemeNotifier.new = function(opts) {
+    let themeData = opts && 'themeData' in opts ? opts.themeData : null;
+    let child = opts && 'child' in opts ? opts.child : null;
+    if (child == null) dart.nullFailed(I[0], 364, 70, "child");
+    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
+    this.themeData = themeData;
+    expandable._ExpandableThemeNotifier.__proto__.new.call(this, {child: child, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
+    ;
+  }).prototype = expandable._ExpandableThemeNotifier.prototype;
+  dart.addTypeTests(expandable._ExpandableThemeNotifier);
+  dart.addTypeCaches(expandable._ExpandableThemeNotifier);
+  dart.setMethodSignature(expandable._ExpandableThemeNotifier, () => ({
+    __proto__: dart.getMethods(expandable._ExpandableThemeNotifier.__proto__),
+    updateShouldNotify: dart.fnType(core.bool, [dart.nullable(core.Object)])
+  }));
+  dart.setLibraryUri(expandable._ExpandableThemeNotifier, I[1]);
+  dart.setFieldSignature(expandable._ExpandableThemeNotifier, () => ({
+    __proto__: dart.getFields(expandable._ExpandableThemeNotifier.__proto__),
+    themeData: dart.finalFieldType(dart.nullable(expandable.ExpandableThemeData))
+  }));
+  var collapsed$ = dart.privateName(expandable, "Expandable.collapsed");
+  var expanded$ = dart.privateName(expandable, "Expandable.expanded");
+  var controller$0 = dart.privateName(expandable, "Expandable.controller");
+  var theme$ = dart.privateName(expandable, "Expandable.theme");
+  expandable.Expandable = class Expandable extends framework.StatelessWidget {
+    get collapsed() {
+      return this[collapsed$];
+    }
+    set collapsed(value) {
+      super.collapsed = value;
+    }
+    get expanded() {
+      return this[expanded$];
+    }
+    set expanded(value) {
+      super.expanded = value;
+    }
+    get controller() {
+      return this[controller$0];
+    }
+    set controller(value) {
+      super.controller = value;
+    }
+    get theme() {
+      return this[theme$];
+    }
+    set theme(value) {
+      super.theme = value;
+    }
+    build(context) {
+      let t0, t0$, t0$0;
+      if (context == null) dart.nullFailed(I[0], 430, 29, "context");
+      let controller = (t0 = this.controller, t0 == null ? expandable.ExpandableController.of(context, {required: true}) : t0);
+      let theme = expandable.ExpandableThemeData.withDefaults(this.theme, context);
+      return new animated_cross_fade.AnimatedCrossFade.new({alignment: dart.nullCheck(theme.alignment), firstChild: this.collapsed, secondChild: this.expanded, firstCurve: new curves.Interval.new(theme.collapsedFadeStart, theme.collapsedFadeEnd, {curve: dart.nullCheck(theme.fadeCurve)}), secondCurve: new curves.Interval.new(theme.expandedFadeStart, theme.expandedFadeEnd, {curve: dart.nullCheck(theme.fadeCurve)}), sizeCurve: dart.nullCheck(theme.sizeCurve), crossFadeState: dart.test((t0$0 = (t0$ = controller, t0$ == null ? null : t0$.expanded), t0$0 == null ? true : t0$0)) ? animated_cross_fade.CrossFadeState.showSecond : animated_cross_fade.CrossFadeState.showFirst, duration: dart.nullCheck(theme.animationDuration), $creationLocationd_0dea112b090073317d4: C[14] || CT.C14});
+    }
+  };
+  (expandable.Expandable.new = function(opts) {
+    let key = opts && 'key' in opts ? opts.key : null;
+    let collapsed = opts && 'collapsed' in opts ? opts.collapsed : null;
+    if (collapsed == null) dart.nullFailed(I[0], 423, 19, "collapsed");
+    let expanded = opts && 'expanded' in opts ? opts.expanded : null;
+    if (expanded == null) dart.nullFailed(I[0], 424, 19, "expanded");
+    let controller = opts && 'controller' in opts ? opts.controller : null;
+    let theme = opts && 'theme' in opts ? opts.theme : null;
+    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
+    this[collapsed$] = collapsed;
+    this[expanded$] = expanded;
+    this[controller$0] = controller;
+    this[theme$] = theme;
+    expandable.Expandable.__proto__.new.call(this, {key: key, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
+    ;
+  }).prototype = expandable.Expandable.prototype;
+  dart.addTypeTests(expandable.Expandable);
+  dart.addTypeCaches(expandable.Expandable);
+  dart.setMethodSignature(expandable.Expandable, () => ({
+    __proto__: dart.getMethods(expandable.Expandable.__proto__),
+    build: dart.fnType(framework.Widget, [framework.BuildContext])
+  }));
+  dart.setLibraryUri(expandable.Expandable, I[1]);
+  dart.setFieldSignature(expandable.Expandable, () => ({
+    __proto__: dart.getFields(expandable.Expandable.__proto__),
+    collapsed: dart.finalFieldType(framework.Widget),
+    expanded: dart.finalFieldType(framework.Widget),
+    controller: dart.finalFieldType(dart.nullable(expandable.ExpandableController)),
+    theme: dart.finalFieldType(dart.nullable(expandable.ExpandableThemeData))
+  }));
+  var _name$ = dart.privateName(expandable, "_name");
+  expandable.ExpandablePanelIconPlacement = class ExpandablePanelIconPlacement extends core.Object {
+    toString() {
+      return this[_name$];
+    }
+  };
+  (expandable.ExpandablePanelIconPlacement.new = function(index, _name) {
+    if (index == null) dart.nullFailed(I[0], 456, 6, "index");
+    if (_name == null) dart.nullFailed(I[0], 456, 6, "_name");
+    this.index = index;
+    this[_name$] = _name;
+    ;
+  }).prototype = expandable.ExpandablePanelIconPlacement.prototype;
+  dart.addTypeTests(expandable.ExpandablePanelIconPlacement);
+  dart.addTypeCaches(expandable.ExpandablePanelIconPlacement);
+  dart.setLibraryUri(expandable.ExpandablePanelIconPlacement, I[1]);
+  dart.setFieldSignature(expandable.ExpandablePanelIconPlacement, () => ({
+    __proto__: dart.getFields(expandable.ExpandablePanelIconPlacement.__proto__),
+    index: dart.finalFieldType(core.int),
+    [_name$]: dart.finalFieldType(core.String)
+  }));
+  dart.defineExtensionMethods(expandable.ExpandablePanelIconPlacement, ['toString']);
+  expandable.ExpandablePanelIconPlacement.left = C[24] || CT.C24;
+  expandable.ExpandablePanelIconPlacement.right = C[25] || CT.C25;
+  expandable.ExpandablePanelIconPlacement.values = C[26] || CT.C26;
+  expandable.ExpandablePanelHeaderAlignment = class ExpandablePanelHeaderAlignment extends core.Object {
+    toString() {
+      return this[_name$];
+    }
+  };
+  (expandable.ExpandablePanelHeaderAlignment.new = function(index, _name) {
+    if (index == null) dart.nullFailed(I[0], 465, 6, "index");
+    if (_name == null) dart.nullFailed(I[0], 465, 6, "_name");
+    this.index = index;
+    this[_name$] = _name;
+    ;
+  }).prototype = expandable.ExpandablePanelHeaderAlignment.prototype;
+  dart.addTypeTests(expandable.ExpandablePanelHeaderAlignment);
+  dart.addTypeCaches(expandable.ExpandablePanelHeaderAlignment);
+  dart.setLibraryUri(expandable.ExpandablePanelHeaderAlignment, I[1]);
+  dart.setFieldSignature(expandable.ExpandablePanelHeaderAlignment, () => ({
+    __proto__: dart.getFields(expandable.ExpandablePanelHeaderAlignment.__proto__),
+    index: dart.finalFieldType(core.int),
+    [_name$]: dart.finalFieldType(core.String)
+  }));
+  dart.defineExtensionMethods(expandable.ExpandablePanelHeaderAlignment, ['toString']);
+  expandable.ExpandablePanelHeaderAlignment.top = C[27] || CT.C27;
+  expandable.ExpandablePanelHeaderAlignment.center = C[28] || CT.C28;
+  expandable.ExpandablePanelHeaderAlignment.bottom = C[29] || CT.C29;
+  expandable.ExpandablePanelHeaderAlignment.values = C[30] || CT.C30;
+  expandable.ExpandablePanelBodyAlignment = class ExpandablePanelBodyAlignment extends core.Object {
+    toString() {
+      return this[_name$];
+    }
+  };
+  (expandable.ExpandablePanelBodyAlignment.new = function(index, _name) {
+    if (index == null) dart.nullFailed(I[0], 477, 6, "index");
+    if (_name == null) dart.nullFailed(I[0], 477, 6, "_name");
+    this.index = index;
+    this[_name$] = _name;
+    ;
+  }).prototype = expandable.ExpandablePanelBodyAlignment.prototype;
+  dart.addTypeTests(expandable.ExpandablePanelBodyAlignment);
+  dart.addTypeCaches(expandable.ExpandablePanelBodyAlignment);
+  dart.setLibraryUri(expandable.ExpandablePanelBodyAlignment, I[1]);
+  dart.setFieldSignature(expandable.ExpandablePanelBodyAlignment, () => ({
+    __proto__: dart.getFields(expandable.ExpandablePanelBodyAlignment.__proto__),
+    index: dart.finalFieldType(core.int),
+    [_name$]: dart.finalFieldType(core.String)
+  }));
+  dart.defineExtensionMethods(expandable.ExpandablePanelBodyAlignment, ['toString']);
+  expandable.ExpandablePanelBodyAlignment.left = C[31] || CT.C31;
+  expandable.ExpandablePanelBodyAlignment.center = C[32] || CT.C32;
+  expandable.ExpandablePanelBodyAlignment.right = C[33] || CT.C33;
+  expandable.ExpandablePanelBodyAlignment.values = C[34] || CT.C34;
+  var header$ = dart.privateName(expandable, "ExpandablePanel.header");
+  var collapsed$0 = dart.privateName(expandable, "ExpandablePanel.collapsed");
+  var expanded$0 = dart.privateName(expandable, "ExpandablePanel.expanded");
+  var builder$ = dart.privateName(expandable, "ExpandablePanel.builder");
+  var controller$1 = dart.privateName(expandable, "ExpandablePanel.controller");
+  var theme$0 = dart.privateName(expandable, "ExpandablePanel.theme");
+  expandable.ExpandablePanel = class ExpandablePanel extends framework.StatelessWidget {
+    get header() {
+      return this[header$];
+    }
+    set header(value) {
+      super.header = value;
+    }
+    get collapsed() {
+      return this[collapsed$0];
+    }
+    set collapsed(value) {
+      super.collapsed = value;
+    }
+    get expanded() {
+      return this[expanded$0];
+    }
+    set expanded(value) {
+      super.expanded = value;
+    }
+    get builder() {
+      return this[builder$];
+    }
+    set builder(value) {
+      super.builder = value;
+    }
+    get controller() {
+      return this[controller$1];
+    }
+    set controller(value) {
+      super.controller = value;
+    }
+    get theme() {
+      return this[theme$0];
+    }
+    set theme(value) {
+      super.theme = value;
+    }
+    build(context) {
+      if (context == null) dart.nullFailed(I[0], 520, 29, "context");
+      let theme = expandable.ExpandableThemeData.withDefaults(this.theme, context);
+      const buildHeaderRow = () => {
+        let t0;
+        function calculateHeaderCrossAxisAlignment() {
+          switch (dart.nullCheck(theme.headerAlignment)) {
+            case C[27] || CT.C27:
+            {
+              return flex.CrossAxisAlignment.start;
+            }
+            case C[28] || CT.C28:
+            {
+              return flex.CrossAxisAlignment.center;
+            }
+            case C[29] || CT.C29:
+            {
+              return flex.CrossAxisAlignment.end;
+            }
+            default:
+            {
+              dart.throw(new _internal.ReachabilityError.new("`null` encountered as case in a switch expression with a non-nullable enum type."));
+            }
+          }
+        }
+        dart.fn(calculateHeaderCrossAxisAlignment, T.VoidToCrossAxisAlignment());
+        function wrapWithExpandableButton(opts) {
+          let t0;
+          let widget = opts && 'widget' in opts ? opts.widget : null;
+          let wrap = opts && 'wrap' in opts ? opts.wrap : null;
+          if (wrap == null) dart.nullFailed(I[0], 536, 51, "wrap");
+          return dart.test(wrap) ? new expandable.ExpandableButton.new({child: widget, theme: theme, $creationLocationd_0dea112b090073317d4: C[35] || CT.C35}) : (t0 = widget, t0 == null ? new container.Container.new({$creationLocationd_0dea112b090073317d4: C[39] || CT.C39}) : t0);
+        }
+        dart.fn(wrapWithExpandableButton, T.__ToWidget());
+        if (!dart.nullCheck(theme.hasIcon)) {
+          return wrapWithExpandableButton({widget: this.header, wrap: dart.nullCheck(theme.tapHeaderToExpand)});
+        } else {
+          let rowChildren = T.JSArrayOfWidget().of([new basic.Expanded.new({child: (t0 = this.header, t0 == null ? new container.Container.new({$creationLocationd_0dea112b090073317d4: C[41] || CT.C41}) : t0), $creationLocationd_0dea112b090073317d4: C[42] || CT.C42}), wrapWithExpandableButton({widget: new expandable.ExpandableIcon.new({theme: theme, $creationLocationd_0dea112b090073317d4: C[45] || CT.C45}), wrap: !dart.nullCheck(theme.tapHeaderToExpand)})]);
+          return wrapWithExpandableButton({widget: new basic.Row.new({crossAxisAlignment: calculateHeaderCrossAxisAlignment(), children: dart.nullCheck(theme.iconPlacement) === expandable.ExpandablePanelIconPlacement.right ? rowChildren : rowChildren[$reversed][$toList](), $creationLocationd_0dea112b090073317d4: C[48] || CT.C48}), wrap: dart.nullCheck(theme.tapHeaderToExpand)});
+        }
+      };
+      dart.fn(buildHeaderRow, T.VoidToWidget());
+      const buildBody = () => {
+        let t0;
+        function wrapBody(child, tap) {
+          if (child == null) dart.nullFailed(I[0], 568, 30, "child");
+          if (tap == null) dart.nullFailed(I[0], 568, 42, "tap");
+          function calcAlignment() {
+            switch (dart.nullCheck(theme.bodyAlignment)) {
+              case C[31] || CT.C31:
+              {
+                return alignment.Alignment.topLeft;
+              }
+              case C[32] || CT.C32:
+              {
+                return alignment.Alignment.topCenter;
+              }
+              case C[33] || CT.C33:
+              {
+                return alignment.Alignment.topRight;
+              }
+              default:
+              {
+                dart.throw(new _internal.ReachabilityError.new("`null` encountered as case in a switch expression with a non-nullable enum type."));
+              }
+            }
+          }
+          dart.fn(calcAlignment, T.VoidToAlignment());
+          let widget = new basic.Align.new({alignment: calcAlignment(), child: child, $creationLocationd_0dea112b090073317d4: C[52] || CT.C52});
+          if (!dart.test(tap)) {
+            return widget;
+          }
+          return new gesture_detector.GestureDetector.new({behavior: proxy_box.HitTestBehavior.translucent, child: widget, onTap: dart.fn(() => {
+              let t0;
+              let controller = expandable.ExpandableController.of(context);
+              t0 = controller;
+              t0 == null ? null : t0.toggle();
+            }, T.VoidTovoid()), $creationLocationd_0dea112b090073317d4: C[56] || CT.C56});
+        }
+        dart.fn(wrapBody, T.WidgetAndboolToWidget());
+        let builder = (t0 = this.builder, t0 == null ? dart.fn((context, collapsed, expanded) => {
+          if (context == null) dart.nullFailed(I[0], 599, 12, "context");
+          if (collapsed == null) dart.nullFailed(I[0], 599, 21, "collapsed");
+          if (expanded == null) dart.nullFailed(I[0], 599, 32, "expanded");
+          return new expandable.Expandable.new({collapsed: collapsed, expanded: expanded, theme: theme, $creationLocationd_0dea112b090073317d4: C[61] || CT.C61});
+        }, T.BuildContextAndWidgetAndWidgetToExpandable()) : t0);
+        return builder(context, wrapBody(this.collapsed, dart.nullCheck(theme.tapBodyToExpand)), wrapBody(this.expanded, dart.nullCheck(theme.tapBodyToCollapse)));
+      };
+      dart.fn(buildBody, T.VoidToWidget());
+      function buildWithHeader() {
+        return new basic.Column.new({crossAxisAlignment: flex.CrossAxisAlignment.stretch, children: T.JSArrayOfWidget().of([buildHeaderRow(), buildBody()]), $creationLocationd_0dea112b090073317d4: C[66] || CT.C66});
+      }
+      dart.fn(buildWithHeader, T.VoidToWidget());
+      let panel = this.header != null ? buildWithHeader() : buildBody();
+      if (this.controller != null) {
+        return new expandable.ExpandableNotifier.new({controller: this.controller, child: panel, $creationLocationd_0dea112b090073317d4: C[70] || CT.C70});
+      } else {
+        let controller = expandable.ExpandableController.of(context, {rebuildOnChange: false});
+        if (controller == null) {
+          return new expandable.ExpandableNotifier.new({child: panel, $creationLocationd_0dea112b090073317d4: C[74] || CT.C74});
+        } else {
+          return panel;
+        }
+      }
+    }
+  };
+  (expandable.ExpandablePanel.new = function(opts) {
+    let key = opts && 'key' in opts ? opts.key : null;
+    let header = opts && 'header' in opts ? opts.header : null;
+    let collapsed = opts && 'collapsed' in opts ? opts.collapsed : null;
+    if (collapsed == null) dart.nullFailed(I[0], 512, 19, "collapsed");
+    let expanded = opts && 'expanded' in opts ? opts.expanded : null;
+    if (expanded == null) dart.nullFailed(I[0], 513, 19, "expanded");
+    let controller = opts && 'controller' in opts ? opts.controller : null;
+    let builder = opts && 'builder' in opts ? opts.builder : null;
+    let theme = opts && 'theme' in opts ? opts.theme : null;
+    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
+    this[header$] = header;
+    this[collapsed$0] = collapsed;
+    this[expanded$0] = expanded;
+    this[controller$1] = controller;
+    this[builder$] = builder;
+    this[theme$0] = theme;
+    expandable.ExpandablePanel.__proto__.new.call(this, {key: key, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
+    ;
+  }).prototype = expandable.ExpandablePanel.prototype;
+  dart.addTypeTests(expandable.ExpandablePanel);
+  dart.addTypeCaches(expandable.ExpandablePanel);
+  dart.setMethodSignature(expandable.ExpandablePanel, () => ({
+    __proto__: dart.getMethods(expandable.ExpandablePanel.__proto__),
+    build: dart.fnType(framework.Widget, [framework.BuildContext])
+  }));
+  dart.setLibraryUri(expandable.ExpandablePanel, I[1]);
+  dart.setFieldSignature(expandable.ExpandablePanel, () => ({
+    __proto__: dart.getFields(expandable.ExpandablePanel.__proto__),
+    header: dart.finalFieldType(dart.nullable(framework.Widget)),
+    collapsed: dart.finalFieldType(framework.Widget),
+    expanded: dart.finalFieldType(framework.Widget),
+    builder: dart.finalFieldType(dart.nullable(dart.fnType(framework.Widget, [framework.BuildContext, framework.Widget, framework.Widget]))),
+    controller: dart.finalFieldType(dart.nullable(expandable.ExpandableController)),
+    theme: dart.finalFieldType(dart.nullable(expandable.ExpandableThemeData))
+  }));
+  var theme$1 = dart.privateName(expandable, "ExpandableIcon.theme");
+  expandable.ExpandableIcon = class ExpandableIcon extends framework.StatefulWidget {
+    get theme() {
+      return this[theme$1];
+    }
+    set theme(value) {
+      super.theme = value;
+    }
+    createState() {
+      return new expandable._ExpandableIconState.new();
+    }
+  };
+  (expandable.ExpandableIcon.new = function(opts) {
+    let theme = opts && 'theme' in opts ? opts.theme : null;
+    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
+    this[theme$1] = theme;
+    expandable.ExpandableIcon.__proto__.new.call(this, {$creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
+    ;
+  }).prototype = expandable.ExpandableIcon.prototype;
+  dart.addTypeTests(expandable.ExpandableIcon);
+  dart.addTypeCaches(expandable.ExpandableIcon);
+  dart.setMethodSignature(expandable.ExpandableIcon, () => ({
+    __proto__: dart.getMethods(expandable.ExpandableIcon.__proto__),
+    createState: dart.fnType(expandable._ExpandableIconState, [])
+  }));
+  dart.setLibraryUri(expandable.ExpandableIcon, I[1]);
+  dart.setFieldSignature(expandable.ExpandableIcon, () => ({
+    __proto__: dart.getFields(expandable.ExpandableIcon.__proto__),
+    theme: dart.finalFieldType(dart.nullable(expandable.ExpandableThemeData))
+  }));
+  var _expandedStateChanged = dart.privateName(expandable, "_expandedStateChanged");
+  var _name = dart.privateName(animation, "_name");
+  const State_SingleTickerProviderStateMixin$36 = class State_SingleTickerProviderStateMixin extends framework.State$(expandable.ExpandableIcon) {};
+  (State_SingleTickerProviderStateMixin$36.new = function() {
+    ticker_provider.SingleTickerProviderStateMixin$(expandable.ExpandableIcon)[dart.mixinNew].call(this);
+    State_SingleTickerProviderStateMixin$36.__proto__.new.call(this);
+  }).prototype = State_SingleTickerProviderStateMixin$36.prototype;
+  dart.applyMixin(State_SingleTickerProviderStateMixin$36, ticker_provider.SingleTickerProviderStateMixin$(expandable.ExpandableIcon));
+  expandable._ExpandableIconState = class _ExpandableIconState extends State_SingleTickerProviderStateMixin$36 {
+    initState() {
+      let t0, t0$, t0$0;
+      super.initState();
+      let theme = expandable.ExpandableThemeData.withDefaults(this.widget.theme, this.context, {rebuildOnChange: false});
+      this.animationController = new animation_controller.AnimationController.new({duration: theme.animationDuration, vsync: this});
+      this.animation = dart.nullCheck(this.animationController).drive(core.double, new (T.TweenOfdouble()).new({begin: 0.0, end: 1.0}).chain(new tween.CurveTween.new({curve: dart.nullCheck(theme.sizeCurve)})));
+      this.controller = expandable.ExpandableController.of(this.context, {rebuildOnChange: false, required: true});
+      t0 = this.controller;
+      t0 == null ? null : t0.addListener(dart.bind(this, _expandedStateChanged));
+      if (dart.test((t0$0 = (t0$ = this.controller, t0$ == null ? null : t0$.expanded), t0$0 == null ? true : t0$0))) {
+        dart.nullCheck(this.animationController).value = 1.0;
+      }
+    }
+    dispose() {
+      let t0, t0$;
+      t0 = this.controller;
+      t0 == null ? null : t0.removeListener(dart.bind(this, _expandedStateChanged));
+      t0$ = this.animationController;
+      t0$ == null ? null : t0$.dispose();
+      super.dispose();
+    }
+    didUpdateWidget(oldWidget) {
+      expandable.ExpandableIcon.as(oldWidget);
+      if (oldWidget == null) dart.nullFailed(I[0], 688, 39, "oldWidget");
+      super.didUpdateWidget(oldWidget);
+      if (!dart.equals(this.widget.theme, oldWidget.theme)) {
+        this.theme = null;
+      }
+    }
+    [_expandedStateChanged]() {
+      if (dart.test(dart.nullCheck(this.controller).expanded) && dart.test((C[77] || CT.C77)[$contains](dart.nullCheck(this.animationController).status))) {
+        dart.nullCheck(this.animationController).forward();
+      } else if (!dart.test(dart.nullCheck(this.controller).expanded) && dart.test((C[80] || CT.C80)[$contains](dart.nullCheck(this.animationController).status))) {
+        dart.nullCheck(this.animationController).reverse();
+      }
+    }
+    didChangeDependencies() {
+      let t0, t0$, t0$0, t0$1;
+      super.didChangeDependencies();
+      let controller2 = expandable.ExpandableController.of(this.context, {rebuildOnChange: false, required: true});
+      if (!dart.equals(controller2, this.controller)) {
+        t0 = this.controller;
+        t0 == null ? null : t0.removeListener(dart.bind(this, _expandedStateChanged));
+        this.controller = controller2;
+        t0$ = this.controller;
+        t0$ == null ? null : t0$.addListener(dart.bind(this, _expandedStateChanged));
+        if (dart.test((t0$1 = (t0$0 = this.controller, t0$0 == null ? null : t0$0.expanded), t0$1 == null ? true : t0$1))) {
+          dart.nullCheck(this.animationController).value = 1.0;
+        }
+      }
+    }
+    build(context) {
+      if (context == null) dart.nullFailed(I[0], 723, 29, "context");
+      let theme = expandable.ExpandableThemeData.withDefaults(this.widget.theme, context);
+      return new basic.Padding.new({padding: dart.nullCheck(theme.iconPadding), child: new transitions.AnimatedBuilder.new({animation: dart.nullCheck(this.animation), builder: dart.fn((context, child) => {
+            if (context == null) dart.nullFailed(I[0], 730, 19, "context");
+            let showSecondIcon = !dart.nullCheck(theme.collapseIcon)._equals(dart.nullCheck(theme.expandIcon)) && dart.notNull(dart.nullCheck(this.animationController).value) >= 0.5;
+            return new basic.Transform.rotate({angle: dart.nullCheck(theme.iconRotationAngle) * dart.notNull(showSecondIcon ? -(1.0 - dart.notNull(dart.nullCheck(this.animationController).value)) : dart.nullCheck(this.animationController).value), child: new icon.Icon.new(showSecondIcon ? dart.nullCheck(theme.collapseIcon) : dart.nullCheck(theme.expandIcon), {color: dart.nullCheck(theme.iconColor), size: dart.nullCheck(theme.iconSize), $creationLocationd_0dea112b090073317d4: C[83] || CT.C83}), $creationLocationd_0dea112b090073317d4: C[88] || CT.C88});
+          }, T.BuildContextAndWidgetNToTransform()), $creationLocationd_0dea112b090073317d4: C[92] || CT.C92}), $creationLocationd_0dea112b090073317d4: C[96] || CT.C96});
+    }
+  };
+  (expandable._ExpandableIconState.new = function() {
+    this.animationController = null;
+    this.animation = null;
+    this.theme = null;
+    this.controller = null;
+    expandable._ExpandableIconState.__proto__.new.call(this);
+    ;
+  }).prototype = expandable._ExpandableIconState.prototype;
+  dart.addTypeTests(expandable._ExpandableIconState);
+  dart.addTypeCaches(expandable._ExpandableIconState);
+  dart.setMethodSignature(expandable._ExpandableIconState, () => ({
+    __proto__: dart.getMethods(expandable._ExpandableIconState.__proto__),
+    [_expandedStateChanged]: dart.fnType(dart.dynamic, []),
+    build: dart.fnType(framework.Widget, [framework.BuildContext])
+  }));
+  dart.setLibraryUri(expandable._ExpandableIconState, I[1]);
+  dart.setFieldSignature(expandable._ExpandableIconState, () => ({
+    __proto__: dart.getFields(expandable._ExpandableIconState.__proto__),
+    animationController: dart.fieldType(dart.nullable(animation_controller.AnimationController)),
+    animation: dart.fieldType(dart.nullable(animation.Animation$(core.double))),
+    theme: dart.fieldType(dart.nullable(expandable.ExpandableThemeData)),
+    controller: dart.fieldType(dart.nullable(expandable.ExpandableController))
+  }));
+  var child$1 = dart.privateName(expandable, "ExpandableButton.child");
+  var theme$2 = dart.privateName(expandable, "ExpandableButton.theme");
+  expandable.ExpandableButton = class ExpandableButton extends framework.StatelessWidget {
+    get child() {
+      return this[child$1];
+    }
+    set child(value) {
+      super.child = value;
+    }
+    get theme() {
+      return this[theme$2];
+    }
+    set theme(value) {
+      super.theme = value;
+    }
+    build(context) {
+      let t0, t0$;
+      if (context == null) dart.nullFailed(I[0], 758, 29, "context");
+      let controller = expandable.ExpandableController.of(context, {required: true});
+      let theme = expandable.ExpandableThemeData.withDefaults(this.theme, context);
+      if (dart.nullCheck(theme.useInkWell)) {
+        return new ink_well.InkWell.new({onTap: (t0 = controller, t0 == null ? null : dart.bind(t0, 'toggle')), child: this.child, borderRadius: dart.nullCheck(theme.inkWellBorderRadius), $creationLocationd_0dea112b090073317d4: C[100] || CT.C100});
+      } else {
+        return new gesture_detector.GestureDetector.new({onTap: (t0$ = controller, t0$ == null ? null : dart.bind(t0$, 'toggle')), child: this.child, $creationLocationd_0dea112b090073317d4: C[105] || CT.C105});
+      }
+    }
+  };
+  (expandable.ExpandableButton.new = function(opts) {
+    let child = opts && 'child' in opts ? opts.child : null;
+    let theme = opts && 'theme' in opts ? opts.theme : null;
+    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
+    this[child$1] = child;
+    this[theme$2] = theme;
+    expandable.ExpandableButton.__proto__.new.call(this, {$creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
+    ;
+  }).prototype = expandable.ExpandableButton.prototype;
+  dart.addTypeTests(expandable.ExpandableButton);
+  dart.addTypeCaches(expandable.ExpandableButton);
+  dart.setMethodSignature(expandable.ExpandableButton, () => ({
+    __proto__: dart.getMethods(expandable.ExpandableButton.__proto__),
+    build: dart.fnType(framework.Widget, [framework.BuildContext])
+  }));
+  dart.setLibraryUri(expandable.ExpandableButton, I[1]);
+  dart.setFieldSignature(expandable.ExpandableButton, () => ({
+    __proto__: dart.getFields(expandable.ExpandableButton.__proto__),
+    child: dart.finalFieldType(dart.nullable(framework.Widget)),
+    theme: dart.finalFieldType(dart.nullable(expandable.ExpandableThemeData))
+  }));
+  var child$2 = dart.privateName(expandable, "ScrollOnExpand.child");
+  var scrollOnExpand$ = dart.privateName(expandable, "ScrollOnExpand.scrollOnExpand");
+  var scrollOnCollapse$ = dart.privateName(expandable, "ScrollOnExpand.scrollOnCollapse");
+  var theme$3 = dart.privateName(expandable, "ScrollOnExpand.theme");
+  expandable.ScrollOnExpand = class ScrollOnExpand extends framework.StatefulWidget {
+    get child() {
+      return this[child$2];
+    }
+    set child(value) {
+      super.child = value;
+    }
+    get scrollOnExpand() {
+      return this[scrollOnExpand$];
+    }
+    set scrollOnExpand(value) {
+      super.scrollOnExpand = value;
+    }
+    get scrollOnCollapse() {
+      return this[scrollOnCollapse$];
+    }
+    set scrollOnCollapse(value) {
+      super.scrollOnCollapse = value;
+    }
+    get theme() {
+      return this[theme$3];
+    }
+    set theme(value) {
+      super.theme = value;
+    }
+    createState() {
+      return new expandable._ScrollOnExpandState.new();
+    }
+  };
+  (expandable.ScrollOnExpand.new = function(opts) {
+    let key = opts && 'key' in opts ? opts.key : null;
+    let child = opts && 'child' in opts ? opts.child : null;
+    if (child == null) dart.nullFailed(I[0], 796, 19, "child");
+    let scrollOnExpand = opts && 'scrollOnExpand' in opts ? opts.scrollOnExpand : true;
+    if (scrollOnExpand == null) dart.nullFailed(I[0], 797, 10, "scrollOnExpand");
+    let scrollOnCollapse = opts && 'scrollOnCollapse' in opts ? opts.scrollOnCollapse : true;
+    if (scrollOnCollapse == null) dart.nullFailed(I[0], 798, 10, "scrollOnCollapse");
+    let theme = opts && 'theme' in opts ? opts.theme : null;
+    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
+    this[child$2] = child;
+    this[scrollOnExpand$] = scrollOnExpand;
+    this[scrollOnCollapse$] = scrollOnCollapse;
+    this[theme$3] = theme;
+    expandable.ScrollOnExpand.__proto__.new.call(this, {key: key, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
+    ;
+  }).prototype = expandable.ScrollOnExpand.prototype;
+  dart.addTypeTests(expandable.ScrollOnExpand);
+  dart.addTypeCaches(expandable.ScrollOnExpand);
+  dart.setMethodSignature(expandable.ScrollOnExpand, () => ({
+    __proto__: dart.getMethods(expandable.ScrollOnExpand.__proto__),
+    createState: dart.fnType(expandable._ScrollOnExpandState, [])
+  }));
+  dart.setLibraryUri(expandable.ScrollOnExpand, I[1]);
+  dart.setFieldSignature(expandable.ScrollOnExpand, () => ({
+    __proto__: dart.getFields(expandable.ScrollOnExpand.__proto__),
+    child: dart.finalFieldType(framework.Widget),
+    scrollOnExpand: dart.finalFieldType(core.bool),
+    scrollOnCollapse: dart.finalFieldType(core.bool),
+    theme: dart.finalFieldType(dart.nullable(expandable.ExpandableThemeData))
+  }));
+  var _controller = dart.privateName(expandable, "_controller");
+  var _isAnimating = dart.privateName(expandable, "_isAnimating");
+  var _lastContext = dart.privateName(expandable, "_lastContext");
+  var _theme = dart.privateName(expandable, "_theme");
+  var _animationDuration = dart.privateName(expandable, "_animationDuration");
+  var _animationComplete = dart.privateName(expandable, "_animationComplete");
+  expandable._ScrollOnExpandState = class _ScrollOnExpandState extends framework.State$(expandable.ScrollOnExpand) {
+    initState() {
+      let t0;
+      super.initState();
+      this[_controller] = expandable.ExpandableController.of(this.context, {rebuildOnChange: false, required: true});
+      t0 = this[_controller];
+      t0 == null ? null : t0.addListener(dart.bind(this, _expandedStateChanged));
+    }
+    didUpdateWidget(oldWidget) {
+      let t0, t0$;
+      expandable.ScrollOnExpand.as(oldWidget);
+      if (oldWidget == null) dart.nullFailed(I[0], 821, 39, "oldWidget");
+      super.didUpdateWidget(oldWidget);
+      let newController = expandable.ExpandableController.of(this.context, {rebuildOnChange: false, required: true});
+      if (!dart.equals(newController, this[_controller])) {
+        t0 = this[_controller];
+        t0 == null ? null : t0.removeListener(dart.bind(this, _expandedStateChanged));
+        this[_controller] = newController;
+        t0$ = this[_controller];
+        t0$ == null ? null : t0$.addListener(dart.bind(this, _expandedStateChanged));
+      }
+    }
+    dispose() {
+      let t0;
+      super.dispose();
+      t0 = this[_controller];
+      t0 == null ? null : t0.removeListener(dart.bind(this, _expandedStateChanged));
+    }
+    [_animationComplete]() {
+      let t0, t0$, t0$0, t0$1, t1, t0$2;
+      this[_isAnimating] = dart.notNull(this[_isAnimating]) - 1;
+      if (this[_isAnimating] === 0 && this[_lastContext] != null && dart.test(this.mounted)) {
+        if (dart.test((t0$ = (t0 = this[_controller], t0 == null ? null : t0.expanded), t0$ == null ? true && dart.test(this.widget.scrollOnExpand) : t0$)) || !dart.test((t0$1 = (t0$0 = this[_controller], t0$0 == null ? null : t0$0.expanded), t0$1 == null ? true : t0$1)) && dart.test(this.widget.scrollOnCollapse)) {
+          t0$2 = this[_lastContext];
+          t0$2 == null ? null : (t1 = t0$2.findRenderObject(), t1 == null ? null : t1.showOnScreen({duration: this[_animationDuration]}));
+        }
+      }
+    }
+    get [_animationDuration]() {
+      let t0, t0$;
+      t0$ = (t0 = this[_theme], t0 == null ? null : t0.scrollAnimationDuration);
+      return t0$ == null ? dart.nullCheck(expandable.ExpandableThemeData.defaults.animationDuration) : t0$;
+    }
+    [_expandedStateChanged]() {
+      if (this[_theme] != null) {
+        this[_isAnimating] = dart.notNull(this[_isAnimating]) + 1;
+        async.Future.delayed(this[_animationDuration]['+'](new core.Duration.new({milliseconds: 10})), dart.bind(this, _animationComplete));
+      }
+    }
+    build(context) {
+      if (context == null) dart.nullFailed(I[0], 864, 29, "context");
+      this[_lastContext] = context;
+      this[_theme] = expandable.ExpandableThemeData.withDefaults(this.widget.theme, context);
+      return this.widget.child;
+    }
+  };
+  (expandable._ScrollOnExpandState.new = function() {
+    this[_controller] = null;
+    this[_isAnimating] = 0;
+    this[_lastContext] = null;
+    this[_theme] = null;
+    expandable._ScrollOnExpandState.__proto__.new.call(this);
+    ;
+  }).prototype = expandable._ScrollOnExpandState.prototype;
+  dart.addTypeTests(expandable._ScrollOnExpandState);
+  dart.addTypeCaches(expandable._ScrollOnExpandState);
+  dart.setMethodSignature(expandable._ScrollOnExpandState, () => ({
+    __proto__: dart.getMethods(expandable._ScrollOnExpandState.__proto__),
+    [_animationComplete]: dart.fnType(dart.dynamic, []),
+    [_expandedStateChanged]: dart.fnType(dart.dynamic, []),
+    build: dart.fnType(framework.Widget, [framework.BuildContext])
+  }));
+  dart.setGetterSignature(expandable._ScrollOnExpandState, () => ({
+    __proto__: dart.getGetters(expandable._ScrollOnExpandState.__proto__),
+    [_animationDuration]: core.Duration
+  }));
+  dart.setLibraryUri(expandable._ScrollOnExpandState, I[1]);
+  dart.setFieldSignature(expandable._ScrollOnExpandState, () => ({
+    __proto__: dart.getFields(expandable._ScrollOnExpandState.__proto__),
+    [_controller]: dart.fieldType(dart.nullable(expandable.ExpandableController)),
+    [_isAnimating]: dart.fieldType(core.int),
+    [_lastContext]: dart.fieldType(dart.nullable(framework.BuildContext)),
+    [_theme]: dart.fieldType(dart.nullable(expandable.ExpandableThemeData))
+  }));
+  dart.trackLibraries("packages/expandable/expandable.dart", {
+    "package:expandable/expandable.dart": expandable
+  }, {
+  }, '{"version":3,"sourceRoot":"","sources":["expandable.dart"],"names":[],"mappings":"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","file":"../../../../../../../packages/expandable/expandable.dart.lib.js"}');
+  // Exports:
+  return {
+    expandable: expandable
+  };
+}));
+
+//# sourceMappingURL=expandable.dart.lib.js.map

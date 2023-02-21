@@ -1,0 +1,570 @@
+define(['dart_sdk', 'packages/flutter/src/widgets/widget_span.dart', 'packages/flutter/src/material/icon_button.dart', 'packages/flutter/src/material/colors.dart', 'packages/flutter/src/painting/edge_insets.dart', 'packages/flutter/src/rendering/flex.dart', 'packages/flutter/src/painting/strut_style.dart', 'packages/flutter/src/widgets/icon.dart', 'packages/flutter/src/widgets/icon_data.dart', 'packages/flutter/src/widgets/scroll_view.dart'], (function load__packages__myapp__ChooseModalBottomSheet_dart(dart_sdk, packages__flutter__src__widgets__widget_span$46dart, packages__flutter__src__material__icon_button$46dart, packages__flutter__src__material__colors$46dart, packages__flutter__src__painting__edge_insets$46dart, packages__flutter__src__rendering__flex$46dart, packages__flutter__src__painting__strut_style$46dart, packages__flutter__src__widgets__icon$46dart, packages__flutter__src__widgets__icon_data$46dart, packages__flutter__src__widgets__scroll_view$46dart) {
+  'use strict';
+  const core = dart_sdk.core;
+  const ui = dart_sdk.ui;
+  const _interceptors = dart_sdk._interceptors;
+  const dart = dart_sdk.dart;
+  const dartx = dart_sdk.dartx;
+  const framework = packages__flutter__src__widgets__widget_span$46dart.src__widgets__framework;
+  const text = packages__flutter__src__widgets__widget_span$46dart.src__widgets__text;
+  const widget_inspector = packages__flutter__src__widgets__widget_span$46dart.src__widgets__widget_inspector;
+  const container = packages__flutter__src__widgets__widget_span$46dart.src__widgets__container;
+  const basic = packages__flutter__src__widgets__widget_span$46dart.src__widgets__basic;
+  const navigator = packages__flutter__src__widgets__widget_span$46dart.src__widgets__navigator;
+  const text_button = packages__flutter__src__material__icon_button$46dart.src__material__text_button;
+  const bottom_sheet = packages__flutter__src__material__icon_button$46dart.src__material__bottom_sheet;
+  const icon_button = packages__flutter__src__material__icon_button$46dart.src__material__icon_button;
+  const colors = packages__flutter__src__material__colors$46dart.src__material__colors;
+  const edge_insets = packages__flutter__src__painting__edge_insets$46dart.src__painting__edge_insets;
+  const flex = packages__flutter__src__rendering__flex$46dart.src__rendering__flex;
+  const text_style = packages__flutter__src__painting__strut_style$46dart.src__painting__text_style;
+  const icon = packages__flutter__src__widgets__icon$46dart.src__widgets__icon;
+  const icon_data = packages__flutter__src__widgets__icon_data$46dart.src__widgets__icon_data;
+  const scroll_view = packages__flutter__src__widgets__scroll_view$46dart.src__widgets__scroll_view;
+  var ChooseModalBottomSheet = Object.create(dart.library);
+  dart._checkModuleNullSafetyMode(false);
+  var T = {
+    _LocationL: () => (T._LocationL = dart.constFn(dart.legacy(widget_inspector._Location)))(),
+    ObjectL: () => (T.ObjectL = dart.constFn(dart.legacy(core.Object)))(),
+    VoidTovoid: () => (T.VoidTovoid = dart.constFn(dart.fnType(dart.void, [])))(),
+    WidgetL: () => (T.WidgetL = dart.constFn(dart.legacy(framework.Widget)))(),
+    JSArrayOfWidgetL: () => (T.JSArrayOfWidgetL = dart.constFn(_interceptors.JSArray$(T.WidgetL())))(),
+    ContainerL: () => (T.ContainerL = dart.constFn(dart.legacy(container.Container)))(),
+    BuildContextL: () => (T.BuildContextL = dart.constFn(dart.legacy(framework.BuildContext)))(),
+    BuildContextLToContainerL: () => (T.BuildContextLToContainerL = dart.constFn(dart.fnType(T.ContainerL(), [T.BuildContextL()])))(),
+    VoidToNull: () => (T.VoidToNull = dart.constFn(dart.fnType(core.Null, [])))()
+  };
+  var T$Eval = Object.assign({
+    _: () => T$Eval
+  }, T);
+  var S = {
+    _: () => S
+  };
+  var S$Eval = Object.assign({
+    _: () => S$Eval
+  }, S);
+  const CT = Object.create({
+    _: () => (C, CT)
+  });
+  dart.defineLazy(CT, {
+    get C2() {
+      return C[2] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "data",
+        [_Location_column]: 26,
+        [_Location_line]: 30,
+        [_Location_file]: null
+      });
+    },
+    get C1() {
+      return C[1] = dart.constList([C[2] || CT.C2], T._LocationL());
+    },
+    get C0() {
+      return C[0] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[1] || CT.C1,
+        [_Location_name]: null,
+        [_Location_column]: 14,
+        [_Location_line]: 30,
+        [_Location_file]: "file:///C:/Users/shpre/Desktop/GR/myapp/lib/ChooseModalBottomSheet.dart"
+      });
+    },
+    get C5() {
+      return C[5] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "data",
+        [_Location_column]: 36,
+        [_Location_line]: 48,
+        [_Location_file]: null
+      });
+    },
+    get C6() {
+      return C[6] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "style",
+        [_Location_column]: 29,
+        [_Location_line]: 49,
+        [_Location_file]: null
+      });
+    },
+    get C4() {
+      return C[4] = dart.constList([C[5] || CT.C5, C[6] || CT.C6], T._LocationL());
+    },
+    get C3() {
+      return C[3] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[4] || CT.C4,
+        [_Location_name]: null,
+        [_Location_column]: 27,
+        [_Location_line]: 47,
+        [_Location_file]: "file:///C:/Users/shpre/Desktop/GR/myapp/lib/ChooseModalBottomSheet.dart"
+      });
+    },
+    get C10() {
+      return C[10] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "icon",
+        [_Location_column]: 54,
+        [_Location_line]: 55,
+        [_Location_file]: null
+      });
+    },
+    get C9() {
+      return C[9] = dart.constList([C[10] || CT.C10], T._LocationL());
+    },
+    get C8() {
+      return C[8] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[9] || CT.C9,
+        [_Location_name]: null,
+        [_Location_column]: 43,
+        [_Location_line]: 55,
+        [_Location_file]: "file:///C:/Users/shpre/Desktop/GR/myapp/lib/ChooseModalBottomSheet.dart"
+      });
+    },
+    get C11() {
+      return C[11] = dart.const({
+        __proto__: icon_data.IconData.prototype,
+        [IconData_matchTextDirection]: false,
+        [IconData_fontPackage]: null,
+        [IconData_fontFamily]: "MaterialIcons",
+        [IconData_codePoint]: 58974
+      });
+    },
+    get C7() {
+      return C[7] = dart.const({
+        __proto__: icon.Icon.prototype,
+        [Widget__location]: C[8] || CT.C8,
+        [Widget_key]: null,
+        [Icon_textDirection]: null,
+        [Icon_semanticLabel]: null,
+        [Icon_color]: null,
+        [Icon_size]: null,
+        [Icon_icon]: C[11] || CT.C11
+      });
+    },
+    get C14() {
+      return C[14] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "icon",
+        [_Location_column]: 31,
+        [_Location_line]: 55,
+        [_Location_file]: null
+      });
+    },
+    get C15() {
+      return C[15] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onPressed",
+        [_Location_column]: 31,
+        [_Location_line]: 56,
+        [_Location_file]: null
+      });
+    },
+    get C13() {
+      return C[13] = dart.constList([C[14] || CT.C14, C[15] || CT.C15], T._LocationL());
+    },
+    get C12() {
+      return C[12] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[13] || CT.C13,
+        [_Location_name]: null,
+        [_Location_column]: 27,
+        [_Location_line]: 54,
+        [_Location_file]: "file:///C:/Users/shpre/Desktop/GR/myapp/lib/ChooseModalBottomSheet.dart"
+      });
+    },
+    get C18() {
+      return C[18] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "mainAxisAlignment",
+        [_Location_column]: 25,
+        [_Location_line]: 45,
+        [_Location_file]: null
+      });
+    },
+    get C19() {
+      return C[19] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "children",
+        [_Location_column]: 25,
+        [_Location_line]: 46,
+        [_Location_file]: null
+      });
+    },
+    get C17() {
+      return C[17] = dart.constList([C[18] || CT.C18, C[19] || CT.C19], T._LocationL());
+    },
+    get C16() {
+      return C[16] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[17] || CT.C17,
+        [_Location_name]: null,
+        [_Location_column]: 21,
+        [_Location_line]: 44,
+        [_Location_file]: "file:///C:/Users/shpre/Desktop/GR/myapp/lib/ChooseModalBottomSheet.dart"
+      });
+    },
+    get C22() {
+      return C[22] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "data",
+        [_Location_column]: 43,
+        [_Location_line]: 62,
+        [_Location_file]: null
+      });
+    },
+    get C21() {
+      return C[21] = dart.constList([C[22] || CT.C22], T._LocationL());
+    },
+    get C20() {
+      return C[20] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[21] || CT.C21,
+        [_Location_name]: null,
+        [_Location_column]: 38,
+        [_Location_line]: 62,
+        [_Location_file]: "file:///C:/Users/shpre/Desktop/GR/myapp/lib/ChooseModalBottomSheet.dart"
+      });
+    },
+    get C25() {
+      return C[25] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "data",
+        [_Location_column]: 65,
+        [_Location_line]: 62,
+        [_Location_file]: null
+      });
+    },
+    get C24() {
+      return C[24] = dart.constList([C[25] || CT.C25], T._LocationL());
+    },
+    get C23() {
+      return C[23] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[24] || CT.C24,
+        [_Location_name]: null,
+        [_Location_column]: 60,
+        [_Location_line]: 62,
+        [_Location_file]: "file:///C:/Users/shpre/Desktop/GR/myapp/lib/ChooseModalBottomSheet.dart"
+      });
+    },
+    get C28() {
+      return C[28] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "mainAxisAlignment",
+        [_Location_column]: 27,
+        [_Location_line]: 60,
+        [_Location_file]: null
+      });
+    },
+    get C29() {
+      return C[29] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "children",
+        [_Location_column]: 27,
+        [_Location_line]: 62,
+        [_Location_file]: null
+      });
+    },
+    get C27() {
+      return C[27] = dart.constList([C[28] || CT.C28, C[29] || CT.C29], T._LocationL());
+    },
+    get C26() {
+      return C[26] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[27] || CT.C27,
+        [_Location_name]: null,
+        [_Location_column]: 25,
+        [_Location_line]: 59,
+        [_Location_file]: "file:///C:/Users/shpre/Desktop/GR/myapp/lib/ChooseModalBottomSheet.dart"
+      });
+    },
+    get C32() {
+      return C[32] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "children",
+        [_Location_column]: 34,
+        [_Location_line]: 58,
+        [_Location_file]: null
+      });
+    },
+    get C31() {
+      return C[31] = dart.constList([C[32] || CT.C32], T._LocationL());
+    },
+    get C30() {
+      return C[30] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[31] || CT.C31,
+        [_Location_name]: null,
+        [_Location_column]: 25,
+        [_Location_line]: 58,
+        [_Location_file]: "file:///C:/Users/shpre/Desktop/GR/myapp/lib/ChooseModalBottomSheet.dart"
+      });
+    },
+    get C35() {
+      return C[35] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "mainAxisAlignment",
+        [_Location_column]: 19,
+        [_Location_line]: 41,
+        [_Location_file]: null
+      });
+    },
+    get C36() {
+      return C[36] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "mainAxisSize",
+        [_Location_column]: 19,
+        [_Location_line]: 42,
+        [_Location_file]: null
+      });
+    },
+    get C37() {
+      return C[37] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "children",
+        [_Location_column]: 19,
+        [_Location_line]: 43,
+        [_Location_file]: null
+      });
+    },
+    get C34() {
+      return C[34] = dart.constList([C[35] || CT.C35, C[36] || CT.C36, C[37] || CT.C37], T._LocationL());
+    },
+    get C33() {
+      return C[33] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[34] || CT.C34,
+        [_Location_name]: null,
+        [_Location_column]: 24,
+        [_Location_line]: 40,
+        [_Location_file]: "file:///C:/Users/shpre/Desktop/GR/myapp/lib/ChooseModalBottomSheet.dart"
+      });
+    },
+    get C40() {
+      return C[40] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "padding",
+        [_Location_column]: 17,
+        [_Location_line]: 39,
+        [_Location_file]: null
+      });
+    },
+    get C41() {
+      return C[41] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 17,
+        [_Location_line]: 40,
+        [_Location_file]: null
+      });
+    },
+    get C39() {
+      return C[39] = dart.constList([C[40] || CT.C40, C[41] || CT.C41], T._LocationL());
+    },
+    get C38() {
+      return C[38] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[39] || CT.C39,
+        [_Location_name]: null,
+        [_Location_column]: 22,
+        [_Location_line]: 38,
+        [_Location_file]: "file:///C:/Users/shpre/Desktop/GR/myapp/lib/ChooseModalBottomSheet.dart"
+      });
+    },
+    get C44() {
+      return C[44] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "height",
+        [_Location_column]: 15,
+        [_Location_line]: 36,
+        [_Location_file]: null
+      });
+    },
+    get C45() {
+      return C[45] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "color",
+        [_Location_column]: 15,
+        [_Location_line]: 37,
+        [_Location_file]: null
+      });
+    },
+    get C46() {
+      return C[46] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 15,
+        [_Location_line]: 38,
+        [_Location_file]: null
+      });
+    },
+    get C43() {
+      return C[43] = dart.constList([C[44] || CT.C44, C[45] || CT.C45, C[46] || CT.C46], T._LocationL());
+    },
+    get C42() {
+      return C[42] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[43] || CT.C43,
+        [_Location_name]: null,
+        [_Location_column]: 20,
+        [_Location_line]: 35,
+        [_Location_file]: "file:///C:/Users/shpre/Desktop/GR/myapp/lib/ChooseModalBottomSheet.dart"
+      });
+    },
+    get C49() {
+      return C[49] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 7,
+        [_Location_line]: 30,
+        [_Location_file]: null
+      });
+    },
+    get C50() {
+      return C[50] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onPressed",
+        [_Location_column]: 7,
+        [_Location_line]: 31,
+        [_Location_file]: null
+      });
+    },
+    get C48() {
+      return C[48] = dart.constList([C[49] || CT.C49, C[50] || CT.C50], T._LocationL());
+    },
+    get C47() {
+      return C[47] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[48] || CT.C48,
+        [_Location_name]: null,
+        [_Location_column]: 12,
+        [_Location_line]: 29,
+        [_Location_file]: "file:///C:/Users/shpre/Desktop/GR/myapp/lib/ChooseModalBottomSheet.dart"
+      });
+    }
+  }, false);
+  var C = Array(51).fill(void 0);
+  var I = ["package:myapp/ChooseModalBottomSheet.dart"];
+  var name$ = dart.privateName(ChooseModalBottomSheet, "ChooseModalBottomSheet.name");
+  var child$ = dart.privateName(ChooseModalBottomSheet, "ChooseModalBottomSheet.child");
+  ChooseModalBottomSheet.ChooseModalBottomSheet = class ChooseModalBottomSheet$ extends framework.StatefulWidget {
+    get name() {
+      return this[name$];
+    }
+    set name(value) {
+      this[name$] = value;
+    }
+    get child() {
+      return this[child$];
+    }
+    set child(value) {
+      this[child$] = value;
+    }
+    createState() {
+      return new ChooseModalBottomSheet._ChooseModalBottomSheetState.new();
+    }
+  };
+  (ChooseModalBottomSheet.ChooseModalBottomSheet.new = function(opts) {
+    let key = opts && 'key' in opts ? opts.key : null;
+    let name = opts && 'name' in opts ? opts.name : null;
+    let child = opts && 'child' in opts ? opts.child : null;
+    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
+    this[name$] = name;
+    this[child$] = child;
+    ChooseModalBottomSheet.ChooseModalBottomSheet.__proto__.new.call(this, {key: key, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
+    ;
+  }).prototype = ChooseModalBottomSheet.ChooseModalBottomSheet.prototype;
+  dart.addTypeTests(ChooseModalBottomSheet.ChooseModalBottomSheet);
+  dart.addTypeCaches(ChooseModalBottomSheet.ChooseModalBottomSheet);
+  dart.setMethodSignature(ChooseModalBottomSheet.ChooseModalBottomSheet, () => ({
+    __proto__: dart.getMethods(ChooseModalBottomSheet.ChooseModalBottomSheet.__proto__),
+    createState: dart.fnType(dart.legacy(ChooseModalBottomSheet._ChooseModalBottomSheetState), [])
+  }));
+  dart.setLibraryUri(ChooseModalBottomSheet.ChooseModalBottomSheet, I[0]);
+  dart.setFieldSignature(ChooseModalBottomSheet.ChooseModalBottomSheet, () => ({
+    __proto__: dart.getFields(ChooseModalBottomSheet.ChooseModalBottomSheet.__proto__),
+    name: dart.fieldType(dart.legacy(core.String)),
+    child: dart.fieldType(dart.legacy(framework.Widget))
+  }));
+  var _Location_parameterLocations = dart.privateName(widget_inspector, "_Location.parameterLocations");
+  var _Location_name = dart.privateName(widget_inspector, "_Location.name");
+  var _Location_column = dart.privateName(widget_inspector, "_Location.column");
+  var _Location_line = dart.privateName(widget_inspector, "_Location.line");
+  var _Location_file = dart.privateName(widget_inspector, "_Location.file");
+  var Widget__location = dart.privateName(framework, "Widget._location");
+  var Widget_key = dart.privateName(framework, "Widget.key");
+  var Icon_textDirection = dart.privateName(icon, "Icon.textDirection");
+  var Icon_semanticLabel = dart.privateName(icon, "Icon.semanticLabel");
+  var Icon_color = dart.privateName(icon, "Icon.color");
+  var Icon_size = dart.privateName(icon, "Icon.size");
+  var IconData_matchTextDirection = dart.privateName(icon_data, "IconData.matchTextDirection");
+  var IconData_fontPackage = dart.privateName(icon_data, "IconData.fontPackage");
+  var IconData_fontFamily = dart.privateName(icon_data, "IconData.fontFamily");
+  var IconData_codePoint = dart.privateName(icon_data, "IconData.codePoint");
+  var Icon_icon = dart.privateName(icon, "Icon.icon");
+  ChooseModalBottomSheet._ChooseModalBottomSheetState = class _ChooseModalBottomSheetState extends framework.State$(dart.legacy(ChooseModalBottomSheet.ChooseModalBottomSheet)) {
+    initState() {
+      super.initState();
+      this.name = this.widget.name;
+      this.child = this.widget.child;
+    }
+    build(context) {
+      return new text_button.TextButton.new({child: new text.Text.new(dart.str(this.name), {$creationLocationd_0dea112b090073317d4: C[0] || CT.C0}), onPressed: dart.fn(() => {
+          bottom_sheet.showModalBottomSheet(dart.void, {context: context, builder: dart.fn(context => new container.Container.new({height: 800.0, color: colors.Colors.white, child: new basic.Padding.new({padding: new edge_insets.EdgeInsets.all(20.0), child: new basic.Column.new({mainAxisAlignment: flex.MainAxisAlignment.start, mainAxisSize: flex.MainAxisSize.min, children: T.JSArrayOfWidgetL().of([new basic.Row.new({mainAxisAlignment: flex.MainAxisAlignment.spaceBetween, children: T.JSArrayOfWidgetL().of([new text.Text.new(dart.str(this.name), {style: new text_style.TextStyle.new({fontSize: 20.0, color: colors.Colors.blue, fontWeight: ui.FontWeight.bold}), $creationLocationd_0dea112b090073317d4: C[3] || CT.C3}), new icon_button.IconButton.new({icon: C[7] || CT.C7, onPressed: dart.fn(() => navigator.Navigator.pop(T.ObjectL(), context), T.VoidTovoid()), $creationLocationd_0dea112b090073317d4: C[12] || CT.C12})]), $creationLocationd_0dea112b090073317d4: C[16] || CT.C16}), new scroll_view.ListView.new({children: T.JSArrayOfWidgetL().of([new basic.Row.new({mainAxisAlignment: flex.MainAxisAlignment.spaceBetween, children: T.JSArrayOfWidgetL().of([new text.Text.new("Hello world", {$creationLocationd_0dea112b090073317d4: C[20] || CT.C20}), new text.Text.new("Hello world", {$creationLocationd_0dea112b090073317d4: C[23] || CT.C23})]), $creationLocationd_0dea112b090073317d4: C[26] || CT.C26})]), $creationLocationd_0dea112b090073317d4: C[30] || CT.C30})]), $creationLocationd_0dea112b090073317d4: C[33] || CT.C33}), $creationLocationd_0dea112b090073317d4: C[38] || CT.C38}), $creationLocationd_0dea112b090073317d4: C[42] || CT.C42}), T.BuildContextLToContainerL())});
+        }, T.VoidToNull()), $creationLocationd_0dea112b090073317d4: C[47] || CT.C47});
+    }
+  };
+  (ChooseModalBottomSheet._ChooseModalBottomSheetState.new = function() {
+    this.name = null;
+    this.child = null;
+    ChooseModalBottomSheet._ChooseModalBottomSheetState.__proto__.new.call(this);
+    ;
+  }).prototype = ChooseModalBottomSheet._ChooseModalBottomSheetState.prototype;
+  dart.addTypeTests(ChooseModalBottomSheet._ChooseModalBottomSheetState);
+  dart.addTypeCaches(ChooseModalBottomSheet._ChooseModalBottomSheetState);
+  dart.setMethodSignature(ChooseModalBottomSheet._ChooseModalBottomSheetState, () => ({
+    __proto__: dart.getMethods(ChooseModalBottomSheet._ChooseModalBottomSheetState.__proto__),
+    build: dart.fnType(dart.legacy(framework.Widget), [dart.legacy(framework.BuildContext)])
+  }));
+  dart.setLibraryUri(ChooseModalBottomSheet._ChooseModalBottomSheetState, I[0]);
+  dart.setFieldSignature(ChooseModalBottomSheet._ChooseModalBottomSheetState, () => ({
+    __proto__: dart.getFields(ChooseModalBottomSheet._ChooseModalBottomSheetState.__proto__),
+    name: dart.fieldType(dart.legacy(core.String)),
+    child: dart.fieldType(dart.legacy(framework.Widget))
+  }));
+  dart.trackLibraries("packages/myapp/ChooseModalBottomSheet.dart", {
+    "package:myapp/ChooseModalBottomSheet.dart": ChooseModalBottomSheet
+  }, {
+  }, '{"version":3,"sourceRoot":"","sources":["ChooseModalBottomSheet.dart"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;IAGS;;;;;;IACA;;;;;;;AAKuC;IAA8B;;;QAHhD;QAAoB;QAAW;;IAAX;IAAW;AAAU,iFAAW,GAAG;;EAAC;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;AAajE,MAAX;AACY,MAAlB,YAAO,AAAO;AACM,MAApB,aAAQ,AAAO;IAGjB;UAG0B;AACxB,YAAO,wCACE,kBAAY,SAAL,iFACH;AA4CR,UA3CD,uDACW,OAAO,WACP,QAAc,WACd,qCACG,cACM,4BACP,gCACe,+BAAI,cACjB,yCACgC,4CACV,iCACT,yBAChB,sCACyC,+CAC3B,yBACR,kBACS,SAAL,oBACK,wCACO,aACI,gCACS,+EAE7B,gEAEe,cAAgB,qCAAI,OAAO,4IAE5C,wCAAmB,yBACnB,sCACuC,+CAE5B,yBAAE,kBAAK,2EAAiB,kBAAK;;IAgB9D;;;IAhEO;IACA;;;EAgET","file":"../../../../../../packages/myapp/ChooseModalBottomSheet.dart.lib.js"}');
+  // Exports:
+  return {
+    ChooseModalBottomSheet: ChooseModalBottomSheet
+  };
+}));
+
+//# sourceMappingURL=ChooseModalBottomSheet.dart.lib.js.map

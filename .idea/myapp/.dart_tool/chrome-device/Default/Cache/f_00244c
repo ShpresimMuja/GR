@@ -1,0 +1,588 @@
+define(['dart_sdk', 'packages/flutter/src/widgets/widget_span.dart', 'packages/flutter/src/painting/edge_insets.dart', 'packages/flutter/src/widgets/async.dart', 'packages/http/src/multipart_request.dart', 'packages/flutter/src/material/progress_indicator.dart', 'packages/flutter/src/widgets/scroll_view.dart', 'packages/flutter/src/rendering/sliver_grid.dart', 'packages/flutter/src/painting/alignment.dart', 'packages/flutter/src/widgets/icon.dart', 'packages/flutter/src/material/icons.dart', 'packages/flutter/src/painting/placeholder_span.dart', 'packages/flutter/src/painting/strut_style.dart', 'packages/flutter/src/material/colors.dart'], (function load__packages__myapp__ItemsCard_dart(dart_sdk, packages__flutter__src__widgets__widget_span$46dart, packages__flutter__src__painting__edge_insets$46dart, packages__flutter__src__widgets__async$46dart, packages__http__src__multipart_request$46dart, packages__flutter__src__material__progress_indicator$46dart, packages__flutter__src__widgets__scroll_view$46dart, packages__flutter__src__rendering__sliver_grid$46dart, packages__flutter__src__painting__alignment$46dart, packages__flutter__src__widgets__icon$46dart, packages__flutter__src__material__icons$46dart, packages__flutter__src__painting__placeholder_span$46dart, packages__flutter__src__painting__strut_style$46dart, packages__flutter__src__material__colors$46dart) {
+  'use strict';
+  const core = dart_sdk.core;
+  const ui = dart_sdk.ui;
+  const _interceptors = dart_sdk._interceptors;
+  const convert = dart_sdk.convert;
+  const _js_helper = dart_sdk._js_helper;
+  const async = dart_sdk.async;
+  const dart = dart_sdk.dart;
+  const dartx = dart_sdk.dartx;
+  const framework = packages__flutter__src__widgets__widget_span$46dart.src__widgets__framework;
+  const container = packages__flutter__src__widgets__widget_span$46dart.src__widgets__container;
+  const widget_inspector = packages__flutter__src__widgets__widget_span$46dart.src__widgets__widget_inspector;
+  const basic = packages__flutter__src__widgets__widget_span$46dart.src__widgets__basic;
+  const text = packages__flutter__src__widgets__widget_span$46dart.src__widgets__text;
+  const edge_insets = packages__flutter__src__painting__edge_insets$46dart.src__painting__edge_insets;
+  const async$ = packages__flutter__src__widgets__async$46dart.src__widgets__async;
+  const client = packages__http__src__multipart_request$46dart.src__client;
+  const http = packages__http__src__multipart_request$46dart.http;
+  const progress_indicator = packages__flutter__src__material__progress_indicator$46dart.src__material__progress_indicator;
+  const scroll_view = packages__flutter__src__widgets__scroll_view$46dart.src__widgets__scroll_view;
+  const sliver_grid = packages__flutter__src__rendering__sliver_grid$46dart.src__rendering__sliver_grid;
+  const alignment = packages__flutter__src__painting__alignment$46dart.src__painting__alignment;
+  const icon = packages__flutter__src__widgets__icon$46dart.src__widgets__icon;
+  const icons = packages__flutter__src__material__icons$46dart.src__material__icons;
+  const text_span = packages__flutter__src__painting__placeholder_span$46dart.src__painting__text_span;
+  const text_style = packages__flutter__src__painting__strut_style$46dart.src__painting__text_style;
+  const colors = packages__flutter__src__material__colors$46dart.src__material__colors;
+  var ItemsCard = Object.create(dart.library);
+  var $_get = dartx._get;
+  var $length = dartx.length;
+  var $toString = dartx.toString;
+  dart._checkModuleNullSafetyMode(false);
+  var T = {
+    CryptoDataL: () => (T.CryptoDataL = dart.constFn(dart.legacy(ItemsCard.CryptoData)))(),
+    ListOfCryptoDataL: () => (T.ListOfCryptoDataL = dart.constFn(core.List$(T.CryptoDataL())))(),
+    ListLOfCryptoDataL: () => (T.ListLOfCryptoDataL = dart.constFn(dart.legacy(T.ListOfCryptoDataL())))(),
+    FutureBuilderOfListLOfCryptoDataL: () => (T.FutureBuilderOfListLOfCryptoDataL = dart.constFn(async$.FutureBuilder$(T.ListLOfCryptoDataL())))(),
+    _LocationL: () => (T._LocationL = dart.constFn(dart.legacy(widget_inspector._Location)))(),
+    WidgetL: () => (T.WidgetL = dart.constFn(dart.legacy(framework.Widget)))(),
+    BuildContextL: () => (T.BuildContextL = dart.constFn(dart.legacy(framework.BuildContext)))(),
+    AsyncSnapshotOfListLOfCryptoDataL: () => (T.AsyncSnapshotOfListLOfCryptoDataL = dart.constFn(async$.AsyncSnapshot$(T.ListLOfCryptoDataL())))(),
+    AsyncSnapshotLOfListLOfCryptoDataL: () => (T.AsyncSnapshotLOfListLOfCryptoDataL = dart.constFn(dart.legacy(T.AsyncSnapshotOfListLOfCryptoDataL())))(),
+    BuildContextLAndAsyncSnapshotLOfListLOfCryptoDataLToWidgetL: () => (T.BuildContextLAndAsyncSnapshotLOfListLOfCryptoDataLToWidgetL = dart.constFn(dart.fnType(T.WidgetL(), [T.BuildContextL(), T.AsyncSnapshotLOfListLOfCryptoDataL()])))(),
+    StringL: () => (T.StringL = dart.constFn(dart.legacy(core.String)))(),
+    TextL: () => (T.TextL = dart.constFn(dart.legacy(text.Text)))(),
+    intL: () => (T.intL = dart.constFn(dart.legacy(core.int)))(),
+    BuildContextLAndintLToTextL: () => (T.BuildContextLAndintLToTextL = dart.constFn(dart.fnType(T.TextL(), [T.BuildContextL(), T.intL()])))(),
+    TextSpanL: () => (T.TextSpanL = dart.constFn(dart.legacy(text_span.TextSpan)))(),
+    JSArrayOfTextSpanL: () => (T.JSArrayOfTextSpanL = dart.constFn(_interceptors.JSArray$(T.TextSpanL())))(),
+    MapOfStringL$dynamic: () => (T.MapOfStringL$dynamic = dart.constFn(core.Map$(T.StringL(), dart.dynamic)))(),
+    MapLOfStringL$dynamic: () => (T.MapLOfStringL$dynamic = dart.constFn(dart.legacy(T.MapOfStringL$dynamic())))(),
+    dynamicToCryptoDataL: () => (T.dynamicToCryptoDataL = dart.constFn(dart.fnType(T.CryptoDataL(), [dart.dynamic])))(),
+    IdentityMapOfStringL$StringL: () => (T.IdentityMapOfStringL$StringL = dart.constFn(_js_helper.IdentityMap$(T.StringL(), T.StringL())))()
+  };
+  var T$Eval = Object.assign({
+    _: () => T$Eval
+  }, T);
+  var S = {
+    _: () => S
+  };
+  var S$Eval = Object.assign({
+    _: () => S$Eval
+  }, S);
+  const CT = Object.create({
+    _: () => (C, CT)
+  });
+  dart.defineLazy(CT, {
+    get C2() {
+      return C[2] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "prices",
+        [_Location_column]: 28,
+        [_Location_line]: 34,
+        [_Location_file]: null
+      });
+    },
+    get C1() {
+      return C[1] = dart.constList([C[2] || CT.C2], T._LocationL());
+    },
+    get C0() {
+      return C[0] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[1] || CT.C1,
+        [_Location_name]: null,
+        [_Location_column]: 17,
+        [_Location_line]: 34,
+        [_Location_file]: "file:///C:/Users/shpre/Desktop/GR/myapp/lib/ItemsCard.dart"
+      });
+    },
+    get C4() {
+      return C[4] = dart.constList([], T._LocationL());
+    },
+    get C3() {
+      return C[3] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[4] || CT.C4,
+        [_Location_name]: null,
+        [_Location_column]: 31,
+        [_Location_line]: 35,
+        [_Location_file]: "file:///C:/Users/shpre/Desktop/GR/myapp/lib/ItemsCard.dart"
+      });
+    },
+    get C7() {
+      return C[7] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 24,
+        [_Location_line]: 35,
+        [_Location_file]: null
+      });
+    },
+    get C6() {
+      return C[6] = dart.constList([C[7] || CT.C7], T._LocationL());
+    },
+    get C5() {
+      return C[5] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[6] || CT.C6,
+        [_Location_name]: null,
+        [_Location_column]: 17,
+        [_Location_line]: 35,
+        [_Location_file]: "file:///C:/Users/shpre/Desktop/GR/myapp/lib/ItemsCard.dart"
+      });
+    },
+    get C10() {
+      return C[10] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "future",
+        [_Location_column]: 9,
+        [_Location_line]: 29,
+        [_Location_file]: null
+      });
+    },
+    get C11() {
+      return C[11] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "builder",
+        [_Location_column]: 9,
+        [_Location_line]: 30,
+        [_Location_file]: null
+      });
+    },
+    get C9() {
+      return C[9] = dart.constList([C[10] || CT.C10, C[11] || CT.C11], T._LocationL());
+    },
+    get C8() {
+      return C[8] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[9] || CT.C9,
+        [_Location_name]: null,
+        [_Location_column]: 14,
+        [_Location_line]: 28,
+        [_Location_file]: "file:///C:/Users/shpre/Desktop/GR/myapp/lib/ItemsCard.dart"
+      });
+    },
+    get C14() {
+      return C[14] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "padding",
+        [_Location_column]: 7,
+        [_Location_line]: 25,
+        [_Location_file]: null
+      });
+    },
+    get C15() {
+      return C[15] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "width",
+        [_Location_column]: 7,
+        [_Location_line]: 26,
+        [_Location_file]: null
+      });
+    },
+    get C16() {
+      return C[16] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "height",
+        [_Location_column]: 7,
+        [_Location_line]: 27,
+        [_Location_file]: null
+      });
+    },
+    get C17() {
+      return C[17] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 7,
+        [_Location_line]: 28,
+        [_Location_file]: null
+      });
+    },
+    get C13() {
+      return C[13] = dart.constList([C[14] || CT.C14, C[15] || CT.C15, C[16] || CT.C16, C[17] || CT.C17], T._LocationL());
+    },
+    get C12() {
+      return C[12] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[13] || CT.C13,
+        [_Location_name]: null,
+        [_Location_column]: 12,
+        [_Location_line]: 24,
+        [_Location_file]: "file:///C:/Users/shpre/Desktop/GR/myapp/lib/ItemsCard.dart"
+      });
+    },
+    get C20() {
+      return C[20] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "data",
+        [_Location_column]: 21,
+        [_Location_line]: 236,
+        [_Location_file]: null
+      });
+    },
+    get C19() {
+      return C[19] = dart.constList([C[20] || CT.C20], T._LocationL());
+    },
+    get C18() {
+      return C[18] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[19] || CT.C19,
+        [_Location_name]: null,
+        [_Location_column]: 16,
+        [_Location_line]: 236,
+        [_Location_file]: "file:///C:/Users/shpre/Desktop/GR/myapp/lib/ItemsCard.dart"
+      });
+    },
+    get C23() {
+      return C[23] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "gridDelegate",
+        [_Location_column]: 7,
+        [_Location_line]: 229,
+        [_Location_file]: null
+      });
+    },
+    get C24() {
+      return C[24] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "itemCount",
+        [_Location_column]: 7,
+        [_Location_line]: 232,
+        [_Location_file]: null
+      });
+    },
+    get C25() {
+      return C[25] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "itemBuilder",
+        [_Location_column]: 7,
+        [_Location_line]: 233,
+        [_Location_file]: null
+      });
+    },
+    get C22() {
+      return C[22] = dart.constList([C[23] || CT.C23, C[24] || CT.C24, C[25] || CT.C25], T._LocationL());
+    },
+    get C21() {
+      return C[21] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[22] || CT.C22,
+        [_Location_name]: null,
+        [_Location_column]: 21,
+        [_Location_line]: 228,
+        [_Location_file]: "file:///C:/Users/shpre/Desktop/GR/myapp/lib/ItemsCard.dart"
+      });
+    },
+    get C26() {
+      return C[26] = dart.const({
+        __proto__: edge_insets.EdgeInsets.prototype,
+        [EdgeInsets_bottom]: 0,
+        [EdgeInsets_right]: 0,
+        [EdgeInsets_top]: 0,
+        [EdgeInsets_left]: 5
+      });
+    },
+    get C29() {
+      return C[29] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "icon",
+        [_Location_column]: 28,
+        [_Location_line]: 88,
+        [_Location_file]: null
+      });
+    },
+    get C30() {
+      return C[30] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "size",
+        [_Location_column]: 11,
+        [_Location_line]: 89,
+        [_Location_file]: null
+      });
+    },
+    get C28() {
+      return C[28] = dart.constList([C[29] || CT.C29, C[30] || CT.C30], T._LocationL());
+    },
+    get C27() {
+      return C[27] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[28] || CT.C28,
+        [_Location_name]: null,
+        [_Location_column]: 16,
+        [_Location_line]: 88,
+        [_Location_file]: "file:///C:/Users/shpre/Desktop/GR/myapp/lib/ItemsCard.dart"
+      });
+    },
+    get C33() {
+      return C[33] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "alignment",
+        [_Location_column]: 9,
+        [_Location_line]: 87,
+        [_Location_file]: null
+      });
+    },
+    get C34() {
+      return C[34] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 9,
+        [_Location_line]: 88,
+        [_Location_file]: null
+      });
+    },
+    get C32() {
+      return C[32] = dart.constList([C[33] || CT.C33, C[34] || CT.C34], T._LocationL());
+    },
+    get C31() {
+      return C[31] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[32] || CT.C32,
+        [_Location_name]: null,
+        [_Location_column]: 12,
+        [_Location_line]: 86,
+        [_Location_file]: "file:///C:/Users/shpre/Desktop/GR/myapp/lib/ItemsCard.dart"
+      });
+    },
+    get C37() {
+      return C[37] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "padding",
+        [_Location_column]: 5,
+        [_Location_line]: 85,
+        [_Location_file]: null
+      });
+    },
+    get C38() {
+      return C[38] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 5,
+        [_Location_line]: 86,
+        [_Location_file]: null
+      });
+    },
+    get C36() {
+      return C[36] = dart.constList([C[37] || CT.C37, C[38] || CT.C38], T._LocationL());
+    },
+    get C35() {
+      return C[35] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[36] || CT.C36,
+        [_Location_name]: null,
+        [_Location_column]: 11,
+        [_Location_line]: 84,
+        [_Location_file]: "file:///C:/Users/shpre/Desktop/GR/myapp/lib/ItemsCard.dart"
+      });
+    },
+    get C41() {
+      return C[41] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "text",
+        [_Location_column]: 8,
+        [_Location_line]: 99,
+        [_Location_file]: null
+      });
+    },
+    get C40() {
+      return C[40] = dart.constList([C[41] || CT.C41], T._LocationL());
+    },
+    get C39() {
+      return C[39] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[40] || CT.C40,
+        [_Location_name]: null,
+        [_Location_column]: 13,
+        [_Location_line]: 98,
+        [_Location_file]: "file:///C:/Users/shpre/Desktop/GR/myapp/lib/ItemsCard.dart"
+      });
+    },
+    get C44() {
+      return C[44] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "alignment",
+        [_Location_column]: 6,
+        [_Location_line]: 97,
+        [_Location_file]: null
+      });
+    },
+    get C45() {
+      return C[45] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 6,
+        [_Location_line]: 98,
+        [_Location_file]: null
+      });
+    },
+    get C43() {
+      return C[43] = dart.constList([C[44] || CT.C44, C[45] || CT.C45], T._LocationL());
+    },
+    get C42() {
+      return C[42] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[43] || CT.C43,
+        [_Location_name]: null,
+        [_Location_column]: 11,
+        [_Location_line]: 96,
+        [_Location_file]: "file:///C:/Users/shpre/Desktop/GR/myapp/lib/ItemsCard.dart"
+      });
+    }
+  }, false);
+  var C = Array(46).fill(void 0);
+  var I = ["package:myapp/ItemsCard.dart"];
+  ItemsCard.ItemsCard = class ItemsCard$ extends framework.StatefulWidget {
+    createState() {
+      return new ItemsCard._ItemsCardState.new();
+    }
+  };
+  (ItemsCard.ItemsCard.new = function(opts) {
+    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
+    ItemsCard.ItemsCard.__proto__.new.call(this, {$creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
+    ;
+  }).prototype = ItemsCard.ItemsCard.prototype;
+  dart.addTypeTests(ItemsCard.ItemsCard);
+  dart.addTypeCaches(ItemsCard.ItemsCard);
+  dart.setMethodSignature(ItemsCard.ItemsCard, () => ({
+    __proto__: dart.getMethods(ItemsCard.ItemsCard.__proto__),
+    createState: dart.fnType(dart.legacy(ItemsCard._ItemsCardState), [])
+  }));
+  dart.setLibraryUri(ItemsCard.ItemsCard, I[0]);
+  var _Location_parameterLocations = dart.privateName(widget_inspector, "_Location.parameterLocations");
+  var _Location_name = dart.privateName(widget_inspector, "_Location.name");
+  var _Location_column = dart.privateName(widget_inspector, "_Location.column");
+  var _Location_line = dart.privateName(widget_inspector, "_Location.line");
+  var _Location_file = dart.privateName(widget_inspector, "_Location.file");
+  ItemsCard._ItemsCardState = class _ItemsCardState extends framework.State$(dart.legacy(ItemsCard.ItemsCard)) {
+    build(context) {
+      return new container.Container.new({padding: new edge_insets.EdgeInsets.fromLTRB(10.0, 5.0, 5.0, 0.0), width: 1.7976931348623157e+308, height: 800.0, child: new (T.FutureBuilderOfListLOfCryptoDataL()).new({future: ItemsCard.fetchCryptoData(client.Client.new()), builder: dart.fn((context, snapshot) => {
+            if (dart.test(snapshot.hasError)) core.print(snapshot.error);
+            return dart.test(snapshot.hasData) ? new ItemsCard.PhotosList.new({prices: snapshot.data, $creationLocationd_0dea112b090073317d4: C[0] || CT.C0}) : new basic.Center.new({child: new progress_indicator.CircularProgressIndicator.new({$creationLocationd_0dea112b090073317d4: C[3] || CT.C3}), $creationLocationd_0dea112b090073317d4: C[5] || CT.C5});
+          }, T.BuildContextLAndAsyncSnapshotLOfListLOfCryptoDataLToWidgetL()), $creationLocationd_0dea112b090073317d4: C[8] || CT.C8}), $creationLocationd_0dea112b090073317d4: C[12] || CT.C12});
+    }
+  };
+  (ItemsCard._ItemsCardState.new = function() {
+    ItemsCard._ItemsCardState.__proto__.new.call(this);
+    ;
+  }).prototype = ItemsCard._ItemsCardState.prototype;
+  dart.addTypeTests(ItemsCard._ItemsCardState);
+  dart.addTypeCaches(ItemsCard._ItemsCardState);
+  dart.setMethodSignature(ItemsCard._ItemsCardState, () => ({
+    __proto__: dart.getMethods(ItemsCard._ItemsCardState.__proto__),
+    build: dart.fnType(dart.legacy(framework.Widget), [dart.legacy(framework.BuildContext)])
+  }));
+  dart.setLibraryUri(ItemsCard._ItemsCardState, I[0]);
+  var currentprice$ = dart.privateName(ItemsCard, "CryptoData.currentprice");
+  var name$ = dart.privateName(ItemsCard, "CryptoData.name");
+  ItemsCard.CryptoData = class CryptoData extends core.Object {
+    get currentprice() {
+      return this[currentprice$];
+    }
+    set currentprice(value) {
+      super.currentprice = value;
+    }
+    get name() {
+      return this[name$];
+    }
+    set name(value) {
+      super.name = value;
+    }
+    static fromJson(json) {
+      return new ItemsCard.CryptoData.new({name: T.StringL().as(json[$_get]("symbol")), currentprice: T.StringL().as(json[$_get]("price"))});
+    }
+  };
+  (ItemsCard.CryptoData.new = function(opts) {
+    let currentprice = opts && 'currentprice' in opts ? opts.currentprice : null;
+    let name = opts && 'name' in opts ? opts.name : null;
+    this[currentprice$] = currentprice;
+    this[name$] = name;
+    ;
+  }).prototype = ItemsCard.CryptoData.prototype;
+  dart.addTypeTests(ItemsCard.CryptoData);
+  dart.addTypeCaches(ItemsCard.CryptoData);
+  dart.setLibraryUri(ItemsCard.CryptoData, I[0]);
+  dart.setFieldSignature(ItemsCard.CryptoData, () => ({
+    __proto__: dart.getFields(ItemsCard.CryptoData.__proto__),
+    currentprice: dart.finalFieldType(dart.legacy(core.String)),
+    name: dart.finalFieldType(dart.legacy(core.String))
+  }));
+  var prices$ = dart.privateName(ItemsCard, "PhotosList.prices");
+  ItemsCard.PhotosList = class PhotosList extends framework.StatelessWidget {
+    get prices() {
+      return this[prices$];
+    }
+    set prices(value) {
+      super.prices = value;
+    }
+    build(context) {
+      return new scroll_view.GridView.builder({gridDelegate: new sliver_grid.SliverGridDelegateWithFixedCrossAxisCount.new({crossAxisCount: 1}), itemCount: this.prices[$length], itemBuilder: dart.fn((context, index) => {
+          let str = dart.notNull(this.prices[$_get](index).currentprice) + "  " + dart.notNull(this.prices[$_get](index).name) + dart.toString(this.prices[$length]);
+          return new text.Text.new(str, {$creationLocationd_0dea112b090073317d4: C[18] || CT.C18});
+        }, T.BuildContextLAndintLToTextL()), $creationLocationd_0dea112b090073317d4: C[21] || CT.C21});
+    }
+  };
+  (ItemsCard.PhotosList.new = function(opts) {
+    let key = opts && 'key' in opts ? opts.key : null;
+    let prices = opts && 'prices' in opts ? opts.prices : null;
+    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
+    this[prices$] = prices;
+    ItemsCard.PhotosList.__proto__.new.call(this, {key: key, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
+    ;
+  }).prototype = ItemsCard.PhotosList.prototype;
+  dart.addTypeTests(ItemsCard.PhotosList);
+  dart.addTypeCaches(ItemsCard.PhotosList);
+  dart.setMethodSignature(ItemsCard.PhotosList, () => ({
+    __proto__: dart.getMethods(ItemsCard.PhotosList.__proto__),
+    build: dart.fnType(dart.legacy(framework.Widget), [dart.legacy(framework.BuildContext)])
+  }));
+  dart.setLibraryUri(ItemsCard.PhotosList, I[0]);
+  dart.setFieldSignature(ItemsCard.PhotosList, () => ({
+    __proto__: dart.getFields(ItemsCard.PhotosList.__proto__),
+    prices: dart.finalFieldType(dart.legacy(core.List$(dart.legacy(ItemsCard.CryptoData))))
+  }));
+  var EdgeInsets_bottom = dart.privateName(edge_insets, "EdgeInsets.bottom");
+  var EdgeInsets_right = dart.privateName(edge_insets, "EdgeInsets.right");
+  var EdgeInsets_top = dart.privateName(edge_insets, "EdgeInsets.top");
+  var EdgeInsets_left = dart.privateName(edge_insets, "EdgeInsets.left");
+  ItemsCard.CryptoIcon = function CryptoIcon() {
+    return new basic.Padding.new({padding: C[26] || CT.C26, child: new basic.Align.new({alignment: alignment.Alignment.centerLeft, child: new icon.Icon.new(icons.Icons.tv, {size: 25.0, $creationLocationd_0dea112b090073317d4: C[27] || CT.C27}), $creationLocationd_0dea112b090073317d4: C[31] || CT.C31}), $creationLocationd_0dea112b090073317d4: C[35] || CT.C35});
+  };
+  ItemsCard.CryptoNameAbr = function CryptoNameAbr() {
+    return new basic.Align.new({alignment: alignment.Alignment.centerLeft, child: new basic.RichText.new({text: new text_span.TextSpan.new({text: "Bitcoin", style: new text_style.TextStyle.new({fontWeight: ui.FontWeight.bold, color: colors.Colors.black, fontSize: 20.0}), children: T.JSArrayOfTextSpanL().of([new text_span.TextSpan.new({text: "\nBTC", style: new text_style.TextStyle.new({color: colors.Colors.grey, fontSize: 15.0, fontWeight: ui.FontWeight.bold})})])}), $creationLocationd_0dea112b090073317d4: C[39] || CT.C39}), $creationLocationd_0dea112b090073317d4: C[42] || CT.C42});
+  };
+  ItemsCard.parseCryptoData = function parseCryptoData(responseBody) {
+    let parsed = dart.dgsend(convert.jsonDecode(responseBody), [T.MapLOfStringL$dynamic()], 'cast', []);
+    return T.ListLOfCryptoDataL().as(dart.dsend(dart.dgsend(parsed, [T.CryptoDataL()], 'map', [dart.fn(json => ItemsCard.CryptoData.fromJson(T.MapLOfStringL$dynamic().as(json)), T.dynamicToCryptoDataL())]), 'toList', []));
+  };
+  ItemsCard.fetchCryptoData = function fetchCryptoData(client) {
+    return async.async(T.ListLOfCryptoDataL(), function* fetchCryptoData() {
+      let params = new (T.IdentityMapOfStringL$StringL()).from(["start", "1", "limit", "10", "convert", "USD"]);
+      let response = (yield http.get(core.Uri.parse("https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest/"), {headers: new (T.IdentityMapOfStringL$StringL()).from(["Accepts", "application/json", "X-CMC_PRO_API_KEY", "5ebc8979-1b50-4178-8ab1-e478feee7656"])}));
+      core.print(response.body);
+      return ItemsCard.parseCryptoData(response.body);
+    });
+  };
+  dart.trackLibraries("packages/myapp/ItemsCard.dart", {
+    "package:myapp/ItemsCard.dart": ItemsCard
+  }, {
+  }, '{"version":3,"sourceRoot":"","sources":["ItemsCard.dart"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;AAWmC;IAAiB;;;;;;EAOpD;;;;;;;;;;;;;;UAI4B;AACxB,YAAO,uCACe,oCAAS,MAAI,KAAG,KAAG,8CAE/B,cACD,yDACG,0BAAqB,+BACpB,SAAC,SAAS;AACjB,0BAAI,AAAS,QAAD,YAAW,AAAqB,WAAf,AAAS,QAAD;AAErC,6BAAO,AAAS,QAAD,YACT,sCAAmB,AAAS,QAAD,iEAC3B,6BAAc;;IA6C5B;;;;;EACF;;;;;;;;;;;IA2CiB;;;;;;IACA;;;;;;oBASoC;AAG7C,YAAO,qCAEsB,eAAf,AAAI,IAAA,QAAC,0BACa,eAAd,AAAI,IAAA,QAAC;IAe3B;;;QAzBiB;QACA;IADA;IACA;;EAEf;;;;;;;;;;;IAyFmB;;;;;;UAKG;AACxB,YAAgB,iDACA,+EACI,gBAEP,AAAO,mCACL,SAAC,SAAS;AAEd,oBAAiC,AAAO,AAAqB,aAAvD,AAAM,AAAQ,mBAAP,KAAK,kBAAiB,oBAAO,AAAM,AAAQ,mBAAP,KAAK,UAAuB,cAAd,AAAO;AAC7E,gBAAO,mBAAK,GAAG;;IAGrB;;;QAfgB;QAAoB;;;AAAW,wDAAW,GAAG;;EAAC;;;;;;;;;;;;;;;;;AA5I9D,UAAQ,yDAEC,gCACkB,uCACd,kBAAY,uBACX;EAGhB;;AAIG,UAAO,iCACgB,uCACd,8BACC,kCACE,kBACC,0CACoB,2BAAoB,+BAAiB,kBAC5C,2BAClB,kCACU,gBACC,qCACW,8BACJ,kBACa;EAU1C;uDAoDwC;AAChC,iBAAkC,YAAzB,mBAAW,YAAY;AAItC,qCAAmE,WAArD,YAAP,MAAM,6BAAiB,QAAC,QAAoB,2DAAS,IAAI;EAClE;uDAEqD;AAAb;AAG5B,mBAAS,6CAGT,SAAQ,KACR,SAAQ,MACR,WAAU;AAOd,sBACF,MAAM,SAAa,eAAM,mFAIhB,6CAEH,WAAW,oBACX,qBAAqB;AAQT,MAApB,WAAM,AAAS,QAAD;AAKhB,YAAO,2BAAgB,AAAS,QAAD;IACjC","file":"../../../../../../packages/myapp/ItemsCard.dart.lib.js"}');
+  // Exports:
+  return {
+    ItemsCard: ItemsCard
+  };
+}));
+
+//# sourceMappingURL=ItemsCard.dart.lib.js.map

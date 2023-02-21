@@ -1,0 +1,71 @@
+Flutter crash report.
+Please report a bug at https://github.com/flutter/flutter/issues.
+
+## command
+
+flutter run
+
+## exception
+
+WipError: WipError -32000 Cannot find context with specified id
+
+```
+```
+
+## flutter doctor
+
+```
+[✓] Flutter (Channel stable, 2.0.5, on Microsoft
+    Windows [Version 10.0.19042.985], locale
+    en-GB)
+    • Flutter version 2.0.5 at C:\flutter\flutter
+    • Framework revision adc687823a (5 weeks
+      ago), 2021-04-16 09:40:20 -0700
+    • Engine revision b09f014e96
+    • Dart version 2.12.3
+
+[!] Android toolchain - develop for Android
+    devices (Android SDK version 30.0.2)
+    • Android SDK at
+      C:\Users\shpre\AppData\Local\Android\sdk
+    • Platform android-30, build-tools 30.0.2
+    • Java binary at: C:\Program
+      Files\Android\Android Studio\jre\bin\java
+    • Java version OpenJDK Runtime Environment
+      (build 1.8.0_242-release-1644-b01)
+    ! Some Android licenses not accepted.  To
+      resolve this, run: flutter doctor
+      --android-licenses
+
+[✗] Chrome - develop for the web (Cannot find
+    Chrome executable at
+    .\Google\Chrome\Application\chrome.exe)
+    ! Cannot find Chrome. Try setting
+      CHROME_EXECUTABLE to a Chrome executable.
+
+[✓] Android Studio (version 4.0)
+    • Android Studio at C:\Program
+      Files\Android\Android Studio
+    • Flutter plugin can be installed from:
+      🔨
+      https://plugins.jetbrains.com/plugin/9212-f
+      lutter
+    • Dart plugin can be installed from:
+      🔨
+      https://plugins.jetbrains.com/plugin/6351-d
+      art
+    • Java version OpenJDK Runtime Environment
+      (build 1.8.0_242-release-1644-b01)
+
+[✓] VS Code (version 1.56.1)
+    • VS Code at
+      C:\Users\shpre\AppData\Local\Programs\Micro
+      soft VS Code
+    • Flutter extension version 3.22.0
+
+[✓] Connected device (1 available)
+    • Edge (web) • edge • web-javascript •
+      Microsoft Edge 90.0.818.62
+
+! Doctor found issues in 2 categories.
+```
